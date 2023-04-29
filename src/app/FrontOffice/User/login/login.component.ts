@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/User/auth.service";
 import {StorageService} from "../../../services/User/storage.service";
 import {loginRequest} from "./loginRequest";
+import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
 const ROLE_USER = 'ROLE_USER';
 const ROLE_ADMIN = 'ROLE_ADMIN';
@@ -52,8 +53,15 @@ export class LoginComponent implements OnInit {
         this.roles = this.storageService.getUser().roles;
       //  this.reloadPage();
 
-        alert("the role of the logged user is "+ this.roles)
+       // alert("the role of the logged user is "+ this.roles)
         if(this.roles.includes(ROLE_USER)) {
+          Swal.fire({
+            title: 'Welcome Back !' ,
+            text: '  ' +this.form.username,
+            icon: 'success',
+            timer: 2000, // show the dialog for 2 seconds
+            showConfirmButton: false // hide the "OK" button
+          });
           this.router.navigateByUrl('account');
         }
         else{
@@ -61,8 +69,17 @@ export class LoginComponent implements OnInit {
         }
       },
       error: err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+
+        if (err.status === 401) {
+          this.form.username='';
+          this.form.password='';
+         Swal.fire( 'Invalid email or password.');
+
+        } else {
+          Swal.fire( 'An error occurred. Please try again later.');
+        }
+
+
       }
     });
   }
@@ -80,7 +97,7 @@ export class LoginComponent implements OnInit {
         // alert("ress is " + this.authService.getUser());
 
 
-
+        Swal.fire('Champ obligatoire !!', 'Password est un champ obligatoire', 'error');
         this.isSignedin = true;
         // this.roles = this.storageService.getUser().roles;
        // console.log(" \n this.storageService.getUser().roles" + this.authService.getUser());
