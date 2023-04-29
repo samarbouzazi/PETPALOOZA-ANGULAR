@@ -17,6 +17,7 @@ import { ProfileComponent } from './FrontOffice/User/profile/profile.component';
 import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {FooterBackEndComponent} from "./BackOffice/footerBackEnd/footer-back-end/footer-back-end.component";
 import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.component';
+import { AccountComponent } from './FrontOffice/User/Account/account/account.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.compon
         ProfileComponent,
         NavbarComponent,
       FooterBackEndComponent,
-      AdminBoardComponent
+      AdminBoardComponent,
+      AccountComponent
     ],
   imports: [
     BrowserModule,
