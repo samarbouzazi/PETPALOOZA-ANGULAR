@@ -11,15 +11,19 @@ import {AdminBoardComponent} from "./BackOffice/admin-board/admin-board.componen
 import {AccountComponent} from "./FrontOffice/User/Account/account/account.component";
 
 const routes: Routes = [
-  { path : "home" , component : HomeComponent},
+
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // {path:'', component:HomeComponent, pathMatch:'full'},
+  { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {path:'test', component:AdminBoardComponent},
+
 
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   {path:'admin', component:NavbarComponent},
-  {path:'test', component:AdminBoardComponent}
 ];
 
 @NgModule({

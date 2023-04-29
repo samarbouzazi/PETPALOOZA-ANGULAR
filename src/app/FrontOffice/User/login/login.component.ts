@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
         alert("the role of the logged user is "+ this.roles)
         if(this.roles.includes(ROLE_USER)) {
-          this.router.navigateByUrl('profile');
+          this.router.navigateByUrl('account');
         }
         else{
           this.router.navigateByUrl('admin');
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
         // this.roles = this.storageService.getUser().roles;
        // console.log(" \n this.storageService.getUser().roles" + this.authService.getUser());
         // this.reloadPage();
-        this.router.navigateByUrl('profile');      },
+        this.router.navigateByUrl('account');      },
       error: err => {
         this.errorMessage = err.error.message;
         // this.isLoginFailed = true;
