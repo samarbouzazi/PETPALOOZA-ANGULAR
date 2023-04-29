@@ -13,7 +13,6 @@ import { HomeComponent } from './FrontOffice/home/home.component';
 import { LoginComponent } from './FrontOffice/User/login/login.component';
 import { RegisterComponent } from './FrontOffice/User/register/register.component';
 import {FormsModule} from "@angular/forms";
-import { ProfileComponent } from './FrontOffice/User/profile/profile.component';
 import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {FooterBackEndComponent} from "./BackOffice/footerBackEnd/footer-back-end/footer-back-end.component";
 import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.component';
@@ -30,7 +29,6 @@ import { AccountComponent } from './FrontOffice/User/Account/account/account.com
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        ProfileComponent,
         NavbarComponent,
       FooterBackEndComponent,
       AdminBoardComponent,
