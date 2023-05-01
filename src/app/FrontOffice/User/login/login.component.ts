@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/User/auth.service";
-import {StorageService} from "../../../services/User/storage.service";
 import {loginRequest} from "./loginRequest";
 import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   error: string = '';
 
-  constructor( private userS: UserService,  private authService: AuthService, private storageService: StorageService, private router:Router) { }
+  constructor( private userS: UserService,  private authService: AuthService,  private router:Router) { }
 
   ngOnInit(): void {
     // if (this.storageService.isLoggedIn()) {

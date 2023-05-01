@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Router} from "@angular/router";
 
 const API_URL = 'http://localhost:8888';
 const USER_KEY = 'bara123456789';
@@ -9,7 +10,7 @@ const USER_KEY = 'bara123456789';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private  router: Router) {}
 
   public setRoles(roles:[]){
     localStorage.setItem("roles", JSON.stringify(roles));
@@ -39,11 +40,18 @@ export class UserService {
   }
 
 
+  //
+  // public isLoggedIn() {
+  //   return this.getToken() && this.getRoles();
+  // }
 
-  public isLoggedIn() {
-    return this.getToken() && this.getRoles();
+
+
+  public isLoggedIn(): boolean {
+    const token = this.getToken();
+    const roles = this.getRoles();
+    return !!(token && roles);
   }
-
 
 
   public getID(){
@@ -65,6 +73,16 @@ console.log("\n email  "+ email);
 
   }
 
+
+
+  signout() {
+    //localStorage.clear();
+    // localStorage.removeItem('accessToken');
+    // localStorage.removeItem('token');
+
+    localStorage.clear();
+    this.router.navigateByUrl('login');
+  }
 
 
   // public isLoggedInTwo(): boolean {
@@ -94,20 +112,20 @@ console.log("\n email  "+ email);
     return user;
   }
 
-
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
-  }
-
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
-  }
-
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  }
+  //
+  // getPublicContent(): Observable<any> {
+  //   return this.http.get(API_URL + 'all', { responseType: 'text' });
+  // }
+  //
+  // getUserBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'user', { responseType: 'text' });
+  // }
+  //
+  // getModeratorBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'mod', { responseType: 'text' });
+  // }
+  //
+  // getAdminBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  // }
 }

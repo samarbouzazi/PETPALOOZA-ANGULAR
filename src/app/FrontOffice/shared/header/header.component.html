@@ -33,7 +33,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="index.html" class="nav-link">Home   {{isLoggedIn}}</a></li>
                 <li class="nav-item"><a   routerLink="/account"  class="nav-link">Account</a></li>
                 <li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
                 <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
@@ -44,15 +44,15 @@
             </ul>
 
           <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link"  routerLink="/register" *ngIf="! isLog()"><span class="fas fa-user" ></span> Sign Up</a>
+            <li class="nav-item" >
+              <a class="nav-link"  routerLink="/register" *ngIf="!isLoggedIn"><span class="fas fa-user" ></span> Sign Up</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"  *ngIf="! isLog()" routerLink="/login"><span class="fas fa-sign-in-alt" ></span> Login</a>
+            <li class="nav-item" >
+              <a class="nav-link" href="#"  *ngIf="!isLoggedIn" routerLink="/login"><span class="fas fa-sign-in-alt" ></span> Login</a>
             </li>
 
-            <li class="nav-item" *ngIf=" isLog()">
-              <a *ngIf=" isLog()"    style="text-decoration: underline; cursor: pointer;" (click)="doSignout()"  class="nav-link" >LogOut</a>
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <a *ngIf=" isLoggedIn"    style="text-decoration: underline; cursor: pointer;" (click)="doSignout()"  class="nav-link" >LogOut</a>
             </li>
           </ul>
         </div>

@@ -8,7 +8,6 @@ import {Router} from "@angular/router";
 import {Register} from "../../Models/register";
 import { map } from 'rxjs/operators';
 import {NgForm} from "@angular/forms";
-import {StorageService} from "./storage.service";
 const AUTH_API = 'http://localhost:8888';
 const USER_KEY = 'bara123456789';
 
@@ -27,7 +26,7 @@ export class AuthService {
 
   private API_URL = 'http://localhost:8888';
 
-  constructor(private http: HttpClient, private router: Router, private storageService: StorageService) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   login(username: string, password: string): Observable<any> {
@@ -137,17 +136,17 @@ export class AuthService {
   }
 
 
-  public loginr(username: string, password: string): Observable<any> {
-    const loginUrl = `${this.API_URL}/public/login`;
-    return this.http.post<bara>(loginUrl, {username, password})
-      .pipe(
-        tap((data: bara) => {
-          const token = data.accessToken;
-          this.storageService.saveToken(token);
-        })
-      );
-
-  }
+  // public loginr(username: string, password: string): Observable<any> {
+  //   const loginUrl = `${this.API_URL}/public/login`;
+  //   return this.http.post<bara>(loginUrl, {username, password})
+  //     .pipe(
+  //       tap((data: bara) => {
+  //         const token = data.accessToken;
+  //         this.lo.saveToken(token);
+  //       })
+  //     );
+  //
+  // }
 
 
   public Youtyou(username: string, password: string) {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
-import {StorageService} from "../../../services/User/storage.service";
 import {AuthService} from "../../../services/User/auth.service";
 import {EventBusService} from "../../../services/User/_shared/event-bus.service";
 import {UserService} from "../../../services/User/user.service";
@@ -12,23 +11,19 @@ import {UserService} from "../../../services/User/user.service";
 })
 export class HeaderComponent {
   private roles: string[] = [];
-  // isLoggedIn = false;
-  // isLoggedInTwo = false;
-  // showAdminBoard = false;
-  // showModeratorBoard = false;
+  isLoggedIn: boolean = false;
   username?: string;
+  eventBusSub?: Subscription;    // private storageService: StorageService,
 
-  eventBusSub?: Subscription;
 
   constructor(
-    private storageService: StorageService,
     private authService: AuthService,
-    private eventBusService: EventBusService,
+    // private eventBusService: EventBusService,
     private  userS: UserService
   ) {}
 
   ngOnInit(): void {
-    //this.isLoggedIn = this.storageService.isLoggedIn();
+    this.isLoggedIn = this.userS.isLoggedIn();
     //
     // if (this.isLoggedIn) {
     //   const user = this.storageService.getUser();
@@ -39,14 +34,14 @@ export class HeaderComponent {
     //
     //   this.username = user.username;
     // }
-
-
-
-
-    this.eventBusSub = this.eventBusService.on('logout', () => {
-      this.logout();
-    });
   }
+
+
+  //
+  //   this.eventBusSub = this.eventBusService.on('logout', () => {
+  //     this.logout();
+  //   });
+  // }
 
 
 
@@ -56,22 +51,24 @@ export class HeaderComponent {
     return this.userS.isLoggedIn();
   }
 
-  logout(): void {
-    this.authService.logout().subscribe({
-      next: res => {
-        console.log(res);
-        this.storageService.clear();
-
-        window.location.reload();
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-  }
-
   doSignout() {
-    this.authService.signout();
+    this.userS.signout();
   }
+
+  //
+  // logout(): void {
+  //   this.authService.logout().subscribe({
+  //     next: res => {
+  //       console.log(res);
+  //       this.storageService.clear();
+  //
+  //       window.location.reload();
+  //     },
+  //     error: err => {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
+
 
 }
