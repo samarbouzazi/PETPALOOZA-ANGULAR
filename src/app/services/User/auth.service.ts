@@ -29,24 +29,24 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(
-      AUTH_API + '/public/login',
-      {
-        username,
-        password,
-      },
-      httpOptions
-    );
-  }
+  // login(username: string, password: string): Observable<any> {
+  //   return this.http.post(
+  //     AUTH_API + '/public/login',
+  //     {
+  //       username,
+  //       password,
+  //     },
+  //     httpOptions
+  //   );
+  // }
 
-
-  public saveUserF(user: any): void {
-    sessionStorage.setItem('user', JSON.stringify(user));
-
-    // Save the JWT token
-    sessionStorage.setItem('token', user.accessToken);
-  }
+  //
+  // public saveUserF(user: any): void {
+  //   sessionStorage.setItem('user', JSON.stringify(user));
+  //
+  //   // Save the JWT token
+  //   sessionStorage.setItem('token', user.accessToken);
+  // }
 
 
   register(username: string, email: string, password: string): Observable<any> {
@@ -66,32 +66,32 @@ export class AuthService {
   }
 
 
-  public saveUser(user: any): void {
-    // window.sessionStorage.removeItem(USER_KEY);
-    console.log("storage user" + user);
+  // public saveUser(user: any): void {
+  //   // window.sessionStorage.removeItem(USER_KEY);
+  //   console.log("storage user" + user);
+  //
+  //   window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+  //   console.log("\n window.sessionStorage" + window.sessionStorage);
+  //   console.log("the connected user is " + user)
+  // }
 
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-    console.log("\n window.sessionStorage" + window.sessionStorage);
-    console.log("the connected user is " + user)
-  }
+  //
+  // signout() {
+  //   sessionStorage.removeItem('user');
+  //   sessionStorage.removeItem('token');
+  //   sessionStorage.clear();
+  //   this.router.navigateByUrl('login');
+  // }
+  //
 
-
-  signout() {
-    sessionStorage.removeItem('user');
-    sessionStorage.removeItem('token');
-    sessionStorage.clear();
-    this.router.navigateByUrl('login');
-  }
-
-
-  public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      return JSON.parse(user);
-    }
-
-    return {};
-  }
+  // public getUser(): any {
+  //   const user = window.sessionStorage.getItem(USER_KEY);
+  //   if (user) {
+  //     return JSON.parse(user);
+  //   }
+  //
+  //   return {};
+  // }
 
 
   signup(register: Register): Observable<any> {
@@ -149,7 +149,16 @@ export class AuthService {
   // }
 
 
-  public Youtyou(username: string, password: string) {
+
+
+
+
+
+
+
+
+
+  public Login(username: string, password: string) {
     return this.http.post(
       AUTH_API + '/public/login',
       {

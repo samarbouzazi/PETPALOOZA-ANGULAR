@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
 import {AuthService} from "../../../services/User/auth.service";
-import {EventBusService} from "../../../services/User/_shared/event-bus.service";
 import {UserService} from "../../../services/User/user.service";
 
 @Component({

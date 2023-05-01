@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
 import {AuthService} from "../../services/User/auth.service";
-import {EventBusService} from "../../services/User/_shared/event-bus.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/User/user.service";
 
@@ -21,7 +20,6 @@ export class NavbarComponent {private roles: string[] = [];
   constructor(
     private  userS: UserService,
     private authService: AuthService,
-    private eventBuService: EventBusService,
     private router:Router
   ) {}
 
