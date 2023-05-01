@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8888';
+const USER_KEY = 'bara123456789';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,17 @@ export class UserService {
 
   public isLoggedIn() {
     return this.getToken() && this.getRoles();
+  }
+
+
+
+  public isLoggedInTwo(): boolean {
+    const user = window.localStorage.getItem(USER_KEY);
+    if (user) {
+      return true;
+    }
+
+    return false;
   }
 
 

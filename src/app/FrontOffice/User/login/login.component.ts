@@ -170,13 +170,13 @@ export class LoginComponent implements OnInit {
 
 
 
-  public onSu(){
+  public FinalLogin(){
     const { username, password } = this.form;
 
     this.authService.Youtyou(username, password).subscribe(
       (response : any)=>{
         console.log("  the response is  "+ JSON.stringify(response.accessToken));
-       console.log(" \n the role is  is  "+ JSON.stringify(response.roles));
+        console.log(" \n the role is  is  "+ JSON.stringify(response.roles));
         console.log(" \n the hole object   is  "+ JSON.stringify(response));
 
 
@@ -192,8 +192,10 @@ export class LoginComponent implements OnInit {
 
         const roles= response.roles[0];
 
-        if(roles== 'ROLE_ADMIN'){
- this.router.navigate(['/admin'])
+        if(roles=== 'ROLE_ADMIN'){
+ this.router.navigate(['/admin']);
+        }else {
+          this.router.navigate(['/home']);
         }
 
 

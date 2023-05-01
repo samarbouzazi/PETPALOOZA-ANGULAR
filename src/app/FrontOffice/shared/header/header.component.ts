@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {StorageService} from "../../../services/User/storage.service";
 import {AuthService} from "../../../services/User/auth.service";
 import {EventBusService} from "../../../services/User/_shared/event-bus.service";
+import {UserService} from "../../../services/User/user.service";
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import {EventBusService} from "../../../services/User/_shared/event-bus.service"
 export class HeaderComponent {
   private roles: string[] = [];
   isLoggedIn = false;
+  isLoggedInTwo = false;
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
@@ -21,11 +23,13 @@ export class HeaderComponent {
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
-    private eventBusService: EventBusService
+    private eventBusService: EventBusService,
+    private  userS: UserService
   ) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.storageService.isLoggedIn();
+    this.isLoggedInTwo = this.userS.isLoggedInTwo();
 
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
@@ -37,9 +41,20 @@ export class HeaderComponent {
       this.username = user.username;
     }
 
+
+
+
     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
     });
+  }
+
+
+
+
+
+  public isLog(){
+    return this.userS.isLoggedIn();
   }
 
   logout(): void {
