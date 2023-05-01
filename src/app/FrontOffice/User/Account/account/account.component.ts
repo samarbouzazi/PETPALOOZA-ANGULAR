@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {StorageService} from "../../../../services/User/storage.service";
+import {UserService} from "../../../../services/User/user.service";
 
 @Component({
   selector: 'app-account',
@@ -9,9 +10,14 @@ import {StorageService} from "../../../../services/User/storage.service";
 export class AccountComponent implements OnInit {
   currentUser: any;
 
-  constructor(private storageService: StorageService) { }
+  user: any;
+
+  constructor(private storageService: StorageService,  private userS: UserService) { }
 
   ngOnInit(): void {
-    this.currentUser = this.storageService.getUser();
+
+    this.currentUser = this.userS.getUser();
+    //  this.user = this.userS.getUserTwo();
+    //  }
   }
 }

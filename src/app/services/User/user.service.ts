@@ -46,20 +46,53 @@ export class UserService {
 
 
 
-  public isLoggedInTwo(): boolean {
-    const user = window.localStorage.getItem(USER_KEY);
-    if (user) {
-      return true;
-    }
+  public getID(){
 
-    return false;
   }
+
+
+  public getUser(): any {
+    const id = localStorage.getItem("id");
+    const username= localStorage.getItem("username");
+    const email= localStorage.getItem("email");
+    const token = localStorage.getItem("accessToken");
+console.log("token 0"+ token);
+console.log("\n  id is "+ id);
+console.log("\n unsername   "+ username);
+console.log("\n email  "+ email);
+    return { id, username, email };
+
+
+  }
+
+
+
+  // public isLoggedInTwo(): boolean {
+  //   const user = window.localStorage.getItem(USER_KEY);
+  //   if (user) {
+  //     return true;
+  //   }
+  //
+  //   return false;
+  // }
 
 
   // if(this.getRoles() !=null && this.getToken() != null){
   //   return true;
   // }
   // return false
+
+
+
+  public setUser(user: any) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  public getUserTwo(): any {
+    const userJson = localStorage.getItem('user');
+    const user = userJson ? JSON.parse(userJson) : {};
+    return user;
+  }
 
 
   getPublicContent(): Observable<any> {

@@ -12,10 +12,10 @@ import {UserService} from "../../../services/User/user.service";
 })
 export class HeaderComponent {
   private roles: string[] = [];
-  isLoggedIn = false;
-  isLoggedInTwo = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
+  // isLoggedIn = false;
+  // isLoggedInTwo = false;
+  // showAdminBoard = false;
+  // showModeratorBoard = false;
   username?: string;
 
   eventBusSub?: Subscription;
@@ -28,18 +28,17 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.storageService.isLoggedIn();
-    this.isLoggedInTwo = this.userS.isLoggedInTwo();
-
-    if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
-      this.roles = user.roles;
-
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-
-      this.username = user.username;
-    }
+    //this.isLoggedIn = this.storageService.isLoggedIn();
+    //
+    // if (this.isLoggedIn) {
+    //   const user = this.storageService.getUser();
+    //   this.roles = user.roles;
+    //
+    //   this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+    //   this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+    //
+    //   this.username = user.username;
+    // }
 
 
 

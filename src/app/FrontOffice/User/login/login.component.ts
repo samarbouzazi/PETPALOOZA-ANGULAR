@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
   constructor( private userS: UserService,  private authService: AuthService, private storageService: StorageService, private router:Router) { }
 
   ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
-      this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
-    }
+    // if (this.storageService.isLoggedIn()) {
+    //   this.isLoggedIn = true;
+    //   this.roles = this.storageService.getUser().roles;
+    // }
   }
 //
 //   onSubmit(): void {
@@ -182,8 +182,14 @@ export class LoginComponent implements OnInit {
 
         this.userS.setRoles(response.roles);
 
-        this.userS.setToken(response.accessToken);
 
+
+        alert("the respanse is    :  "+ JSON.stringify(response));
+
+        this.userS.setToken(response.accessToken);
+        localStorage.setItem("id", response.id);
+        localStorage.setItem("username", response.username);
+        localStorage.setItem("email", response.email);
         console.log(" \n \n now the token is   "+ this.userS.getToken())
 
         console.log(" \n \n now the role is   "+ this.userS.getRoles())
@@ -193,7 +199,7 @@ export class LoginComponent implements OnInit {
         const roles= response.roles[0];
 
         if(roles=== 'ROLE_ADMIN'){
- this.router.navigate(['/admin']);
+         this.router.navigate(['/admin']);
         }else {
           this.router.navigate(['/home']);
         }
