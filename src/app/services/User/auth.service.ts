@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable, tap} from 'rxjs';
+import {Observable, of, tap} from 'rxjs';
 import {Router} from "@angular/router";
 import {Register} from "../../Models/register";
 import { map } from 'rxjs/operators';
@@ -169,5 +169,14 @@ export class AuthService {
     );
 
 
+  }
+  //
+  // isLoggedIn(): Observable<boolean> {
+  //   const token = localStorage.getItem('token');
+  //   return of(token != null);
+  // }
+  isLoggedIn(): Observable<boolean> {
+    const token = localStorage.getItem('accessToken');
+    return of(!!token); // return an Observable of a boolean value
   }
 }

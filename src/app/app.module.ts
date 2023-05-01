@@ -19,6 +19,10 @@ import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.compon
 import { AccountComponent } from './FrontOffice/User/Account/account/account.component';
 import {UserListComponent} from "./FrontOffice/User/userCrud/user-list/user-list.component";
 import {HttpRequestInterceptor} from "./services/User/_helpers/http.interceptor";
+import { UnauthorizedComponent } from './FrontOffice/User/unauthorized/unauthorized.component';
+import {AuthGuardService} from "./FrontOffice/User/auth-guard.service";
+import {AuthService} from "./services/User/auth.service";
+import { UsesComponentComponent } from './BackOffice/UserBackend/uses-component/uses-component.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +39,9 @@ import {HttpRequestInterceptor} from "./services/User/_helpers/http.interceptor"
       FooterBackEndComponent,
       AdminBoardComponent,
       AccountComponent,
-      UserListComponent
+      UserListComponent,
+      UnauthorizedComponent,
+      UsesComponentComponent
     ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import {HttpRequestInterceptor} from "./services/User/_helpers/http.interceptor"
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
       multi: true,
-    },
+    },  AuthGuardService , AuthService
   ],
   bootstrap: [AppComponent]
 })

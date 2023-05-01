@@ -1,29 +1,54 @@
 
 
 
-<div class="card my-5" style="background-color: whitesmoke">
-  <div class="card-body">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.idUser }}</td>
-        <td>{{ user.username }}</td>
-        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<!--<div class="card my-5" style="background-color: whitesmoke">-->
+<!--  <div class="card-body">-->
+<!--    <table class="table table-bordered table-striped">-->
+<!--      <thead class="thead-dark">-->
+<!--      <tr>-->
+<!--        <th scope="col">#</th>-->
+<!--        <th scope="col">Name</th>-->
+<!--        <th scope="col">Email</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let user of users">-->
+<!--        <td>{{ user.idUser }}</td>-->
+<!--        <td>{{ user.username }}</td>-->
+<!--        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Full Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Username</th>
+    <th scope="col">Occupation</th>
+    <th scope="col">BirhtDate</th>
+<!--    <th scope="col">Inscription Date</th>-->
+    <th scope="col">Is Active</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.firstName}} </td>
+    <td>{{user.email}}</td>
+    <td> {{ user.username}}</td>
+    <td> {{ user.occupation}}</td>
+    <td> {{ user.birthDate}}</td>
+
+
+    <td>{{user.active}}</td>
 
 
 
+  </tr>
 
+  </tbody>
+</table>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eum iure maxime nihil repellat vero! Earum inventore nobis nostrum qui quia totam voluptatum? Accusantium, consectetur error est ipsum mollitia velit.

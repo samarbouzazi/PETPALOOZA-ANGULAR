@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Router} from "@angular/router";
 
 const API_URL = 'http://localhost:8888';
@@ -53,10 +53,14 @@ export class UserService {
     return !!(token && roles);
   }
 
+  ////testing this instated
 
-  public getID(){
 
-  }
+
+
+
+
+
 
 
   public getUser(): any {
