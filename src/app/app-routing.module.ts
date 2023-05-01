@@ -14,16 +14,14 @@ const routes: Routes = [
 
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
   // {path:'', component:HomeComponent, pathMatch:'full'},
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path:'test', component:AdminBoardComponent},
-
-
+  {path:'navbar', component:NavbarComponent},
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
-  {path:'admin', component:NavbarComponent},
+  {path:'admin', component:AdminBoardComponent},
 ];
 
 @NgModule({

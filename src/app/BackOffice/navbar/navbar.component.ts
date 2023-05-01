@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
 import {StorageService} from "../../services/User/storage.service";
 import {AuthService} from "../../services/User/auth.service";
-import {EventBusService} from "../../services/User/_shared/event-bus.service";
 import {Router} from "@angular/router";
+import { EventBusService } from 'src/app/services/User/_shared/event-bus.service';
 
 @Component({
   selector: 'app-navbar',

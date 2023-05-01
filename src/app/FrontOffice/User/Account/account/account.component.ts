@@ -8,10 +8,18 @@ import {StorageService} from "../../../../services/User/storage.service";
 })
 export class AccountComponent implements OnInit {
   currentUser: any;
+  id!:number;
 
   constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
+
+    this.id=this.currentUser.id;
+    console.log("the id of the current user is "+this.id);
+
   }
+
+
+  
 }

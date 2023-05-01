@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
         alert("the role of the logged user is "+ this.roles)
         if(this.roles.includes(ROLE_USER)) {
-          this.router.navigateByUrl('account');
+          this.router.navigateByUrl('');
         }
         else{
           this.router.navigateByUrl('admin');
