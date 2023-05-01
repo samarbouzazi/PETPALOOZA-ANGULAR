@@ -12,24 +12,38 @@ export class UserCrudService {
   }
 
   getListOfUser(): Observable<any> {
-
-
-
-
     return this.http.get(API_URL + '/admin/user/list');
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', );
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(API_URL +'/admin/user/delete/'+ id);
   }
 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', {responseType: 'text'});
+  blockUser(id:number): Observable<any> {
+
+return this.http.put(API_URL+'/admin/user/block/'+ id, undefined);
   }
 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', {responseType: 'text'});
-  }
+
+
+
+
+
+
+  //
+  //
+  //
+  // getUserBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'user', );
+  // }
+  //
+  // getModeratorBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'mod', {responseType: 'text'});
+  // }
+  //
+  // getAdminBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'admin', {responseType: 'text'});
+  // }
 
 
 }

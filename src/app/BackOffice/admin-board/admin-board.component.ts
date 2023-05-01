@@ -4,6 +4,7 @@ import {UserCrudService} from "../../services/User/user-crud.service";
 import {Observable} from "rxjs";
 import {UserListComponent} from "../../FrontOffice/User/userCrud/user-list/user-list.component";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-board',
@@ -20,18 +21,18 @@ export class AdminBoardComponent  implements  OnInit{
 
   }
 
-  constructor(private usersCrud: UserCrudService, private  http:HttpClient) {
+  constructor(private usersCrud: UserCrudService, private  http:HttpClient , private  route: Router) {
     this.usersCrud.getListOfUser().subscribe(data => {
       this.users = data;
     });
   }
 
 
-  // public getUsers(){
-  //   this.usersCrud.getListOfUser().subscribe(data => {
-  //     this.users = data;
-  //   });
-  // }
+  public getUsers(){
+    this.usersCrud.getListOfUser().subscribe(data => {
+      this.users = data;
+    });
+  }
 
 
   // public getAll() :Observable<User[]> {
@@ -41,6 +42,26 @@ export class AdminBoardComponent  implements  OnInit{
   //   });
   //   return this.http.get<User[]>(url, { headers });
   // }
+
+  //
+
+
+
+
+
+  deleteUserS(id: number){
+    this.usersCrud.deleteUser(id).subscribe( data => {
+      console.log(data);
+      this.getUsers();
+    })
+  }
+
+  blockUser(id: number){
+    this.usersCrud.blockUser(id).subscribe( data => {
+      console.log(data);
+      this.getUsers();
+    })
+  }
 
 
 

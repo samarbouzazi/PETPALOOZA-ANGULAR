@@ -21,7 +21,11 @@
 <!--    </table>-->
 <!--  </div>-->
 <!--</div>-->
+<app-navbar></app-navbar>
 
+<br>
+<br>
+<div class="container">
 <table class="table">
   <thead class="thead-dark">
   <tr>
@@ -30,25 +34,32 @@
     <th scope="col">Username</th>
     <th scope="col">Occupation</th>
     <th scope="col">BirhtDate</th>
+    <th scope="col">address</th>
 <!--    <th scope="col">Inscription Date</th>-->
     <th scope="col">Is Active</th>
+    <th scope="col"> number of signals </th>
+    <th scope="col"> Action </th>
+<!--    <th scope="col"> Role </th>-->
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users">
+  <tr *ngFor="let user of users" class="trclass">
     <td>{{user.firstName}} </td>
     <td>{{user.email}}</td>
     <td> {{ user.username}}</td>
     <td> {{ user.occupation}}</td>
     <td> {{ user.birthDate}}</td>
-
+    <td> {{ user.address}}</td>
 
     <td>{{user.active}}</td>
-
-
-
+    <td>{{user.numberOfSignal}}</td>
+<!--    <td>{{user.role}}</td>-->
+    <td>
+      <button class="bt btn-danger"   let x="user.idUser" (click)="deleteUserS(user.idUser)" > Delete </button>&nbsp;
+      <button class="bt btn-warning" (click)="blockUser(user.idUser)" > Block </button>
+    </td>
   </tr>
-
   </tbody>
 </table>
 
+</div>

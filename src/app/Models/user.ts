@@ -26,7 +26,9 @@ export interface User {
   phone : string;
   occupation : string;
   active : number;
-  Role :string;
+  role :string [];
+  numberOfSignal: number;
+  address:string;
 
 
 }
