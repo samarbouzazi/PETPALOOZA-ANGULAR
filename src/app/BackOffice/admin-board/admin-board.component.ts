@@ -13,6 +13,14 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class AdminBoardComponent  implements  OnInit{
   ngOnInit(): void {
+
+
+
+
+
+
+
+
     this.usersCrud.getListOfUser().subscribe(data => {
       this.users = data;
     });

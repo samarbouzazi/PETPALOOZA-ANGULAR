@@ -47,7 +47,7 @@ export class NavbarComponent {private roles: string[] = [];
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
-        this.storageService.clean();
+        this.storageService.clear();
 
         window.location.reload();
       },

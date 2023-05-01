@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import {FooterBackEndComponent} from "./BackOffice/footerBackEnd/footer-back-end
 import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.component';
 import { AccountComponent } from './FrontOffice/User/Account/account/account.component';
 import {UserListComponent} from "./FrontOffice/User/userCrud/user-list/user-list.component";
+import {HttpRequestInterceptor} from "./services/User/_helpers/http.interceptor";
 
 @NgModule({
     declarations: [
@@ -44,7 +45,13 @@ import {UserListComponent} from "./FrontOffice/User/userCrud/user-list/user-list
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

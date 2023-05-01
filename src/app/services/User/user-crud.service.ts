@@ -12,7 +12,11 @@ export class UserCrudService {
   }
 
   getListOfUser(): Observable<any> {
-    return this.http.get(API_URL + '/admin/UserList');
+
+
+
+
+    return this.http.get(API_URL + '/admin/user/list');
   }
 
   getUserBoard(): Observable<any> {

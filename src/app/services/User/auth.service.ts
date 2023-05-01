@@ -1,12 +1,21 @@
+
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, tap} from 'rxjs';
 import {Router} from "@angular/router";
 import {Register} from "../../Models/register";
 import { map } from 'rxjs/operators';
+import {NgForm} from "@angular/forms";
+import {StorageService} from "./storage.service";
 const AUTH_API = 'http://localhost:8888';
 const USER_KEY = 'bara123456789';
 
+interface bara {
+  accessToken: string;
+  // other properties here
+}
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -15,7 +24,11 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router:Router) {}
+
+  private API_URL = 'http://localhost:8888';
+
+  constructor(private http: HttpClient, private router: Router, private storageService: StorageService) {
+  }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(
@@ -27,6 +40,15 @@ export class AuthService {
       httpOptions
     );
   }
+
+
+  public saveUserF(user: any): void {
+    sessionStorage.setItem('user', JSON.stringify(user));
+
+    // Save the JWT token
+    sessionStorage.setItem('token', user.accessToken);
+  }
+
 
   register(username: string, email: string, password: string): Observable<any> {
     return this.http.post(
@@ -41,17 +63,17 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    return this.http.post(AUTH_API + 'signout', { }, httpOptions);
+    return this.http.post(AUTH_API + 'signout', {}, httpOptions);
   }
 
 
   public saveUser(user: any): void {
     // window.sessionStorage.removeItem(USER_KEY);
-    console.log("storage user"+ user );
+    console.log("storage user" + user);
 
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-    console.log("\n window.sessionStorage"+ window.sessionStorage );
-    console.log("the connected user is "+ user)
+    console.log("\n window.sessionStorage" + window.sessionStorage);
+    console.log("the connected user is " + user)
   }
 
 
@@ -75,11 +97,13 @@ export class AuthService {
 
   signup(register: Register): Observable<any> {
     return this.http.post<any>(AUTH_API + 'public/register', register,
-      {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'}).pipe(map((resp) => {
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        responseType: 'text' as 'json'
+      }).pipe(map((resp) => {
       return resp;
     }));
   }
-
 
 
   registerTWO(register: Register): Observable<any> {
@@ -91,17 +115,51 @@ export class AuthService {
   }
 
 
-
-  SendVificationEmail(email:string){  return this.http.post<any>(AUTH_API + 'public/user/sendVerification/?email='+email, email,
-    {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'}).pipe(map((resp) => {
-    return resp;
-  }));
+  SendVificationEmail(email: string) {
+    return this.http.post<any>(AUTH_API + 'public/user/sendVerification/?email=' + email, email,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        responseType: 'text' as 'json'
+      }).pipe(map((resp) => {
+      return resp;
+    }));
   }
 
 
-  AccepteVirficationEmail(email:string){ return this.http.post<any>(AUTH_API + 'public/user/verifyAccountLink/?email'+email, email,
-    {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'}).pipe(map((resp) => {
-    return resp;
-  }));
+  AccepteVirficationEmail(email: string) {
+    return this.http.post<any>(AUTH_API + 'public/user/verifyAccountLink/?email' + email, email,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        responseType: 'text' as 'json'
+      }).pipe(map((resp) => {
+      return resp;
+    }));
+  }
+
+
+  public loginr(username: string, password: string): Observable<any> {
+    const loginUrl = `${this.API_URL}/public/login`;
+    return this.http.post<bara>(loginUrl, {username, password})
+      .pipe(
+        tap((data: bara) => {
+          const token = data.accessToken;
+          this.storageService.saveToken(token);
+        })
+      );
+
+  }
+
+
+  public Youtyou(username: string, password: string) {
+    return this.http.post(
+      AUTH_API + '/public/login',
+      {
+        username,
+        password,
+      },
+      httpOptions
+    );
+
+
   }
 }
