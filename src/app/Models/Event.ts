@@ -3,18 +3,18 @@ export class Event {
 
 
     
-    numEvent:number=1;
+    numEvent!:number;
 
-    titre: String = "";
+    titre!: String;
 
    
-    type: String='';
+    type!: String;
 
-    description:String='' ;
+    description!:String ;
 
-    location:String='';
+    location!:String;
 
-    maxParticipants: number=1;
+    maxParticipants!: number;
 
     
     dateDebut:Date=new Date();
