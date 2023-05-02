@@ -19,6 +19,8 @@ import { AdminBoardComponent } from './BackOffice/admin-board/admin-board.compon
 import { AccountComponent } from './FrontOffice/User/Account/account/account.component';
 import { HeaderComponent } from './FrontOffice/shared/header/header.component';
 import { CreateEventComponent } from './BackOffice/EventBack/create-event/create-event.component';
+import { ListEventComponent } from './BackOffice/EventBack/list-event/list-event.component';
+import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update-event.component';
 
 
 
@@ -38,6 +40,8 @@ import { CreateEventComponent } from './BackOffice/EventBack/create-event/create
       AdminBoardComponent,
       AccountComponent,
       CreateEventComponent,
+      ListEventComponent,
+      UpdateEventComponent,
       
     ],
   imports: [

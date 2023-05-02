@@ -9,6 +9,9 @@ import {RegisterComponent} from "./FrontOffice/User/register/register.component"
 import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {AdminBoardComponent} from "./BackOffice/admin-board/admin-board.component";
 import {AccountComponent} from "./FrontOffice/User/Account/account/account.component";
+import { CreateEventComponent } from './BackOffice/EventBack/create-event/create-event.component';
+import { ListEventComponent } from './BackOffice/EventBack/list-event/list-event.component';
+import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update-event.component';
 
 const routes: Routes = [
 
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   {path:'admin', component:AdminBoardComponent},
+  {path: 'events', component: ListEventComponent},
+  {path: 'create-event', component: CreateEventComponent},
+  {path: 'update-event/:id', component: UpdateEventComponent},
 ];
 
 @NgModule({
