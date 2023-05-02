@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/User/auth.service";
 import {loginRequest} from "./loginRequest";
-import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
 import {Observable, tap} from "rxjs";
 import {HttpInterceptor} from "@angular/common/http";
@@ -201,6 +200,7 @@ export class LoginComponent implements OnInit {
          this.router.navigate(['/admin']);
         }else {
           this.router.navigate(['/home']);
+
         }
 
 

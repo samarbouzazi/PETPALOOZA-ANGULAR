@@ -4,8 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Router} from "@angular/router";
 
+
 // import { EventBusService } from '../_shared/event-bus.service';
 // import { EventData } from '../_shared/event.class';
+
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/User/auth.service";
 import {Router} from "@angular/router";
-import {Register} from "../../../Models/register";
-import Swal from "sweetalert2";
+
+
+
 
 @Component({
   selector: 'app-register',

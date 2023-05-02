@@ -6,12 +6,14 @@ import {UserListComponent} from "../../FrontOffice/User/userCrud/user-list/user-
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-admin-board',
 
   templateUrl:'./admin-board.component.html',
   styleUrls: ['./admin-board.component.css']
 })
+
 export class AdminBoardComponent  implements  OnInit{
   users!: User[];
 
@@ -56,13 +58,9 @@ export class AdminBoardComponent  implements  OnInit{
     })
   }
 
-  blockUser(id: number){
-    this.usersCrud.blockUser(id).subscribe( data => {
+  blockUser(id: number) {
+    this.usersCrud.blockUser(id).subscribe(data => {
       console.log(data);
       this.getUsers();
     })
-  }
-
-
-
-}
+  }}

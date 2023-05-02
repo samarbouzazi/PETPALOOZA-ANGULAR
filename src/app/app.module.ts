@@ -1,17 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AddAnimalComponent } from './FrontOffice/Animals/add-animal/add-animal.component';
-import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
-import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
-import { HeaderComponent } from './FrontOffice/shared/header/header.component';
-import { FooterComponent } from './FrontOffice/shared/footer/footer.component';
-import { HomeComponent } from './FrontOffice/home/home.component';
-import { LoginComponent } from './FrontOffice/User/login/login.component';
-import { RegisterComponent } from './FrontOffice/User/register/register.component';
 import {FormsModule} from "@angular/forms";
 import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {FooterBackEndComponent} from "./BackOffice/footerBackEnd/footer-back-end/footer-back-end.component";
@@ -23,13 +15,29 @@ import { UnauthorizedComponent } from './FrontOffice/User/unauthorized/unauthori
 import {AuthGuardService} from "./FrontOffice/User/auth-guard.service";
 import {AuthService} from "./services/User/auth.service";
 import { UsesComponentComponent } from './BackOffice/UserBackend/uses-component/uses-component.component';
+import {AppComponent} from "./app.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {AddAnimalComponent} from "./FrontOffice/Animals/add-animal/add-animal.component";
+import {HeaderComponent} from "./FrontOffice/shared/header/header.component";
+import {FooterComponent} from "./FrontOffice/shared/footer/footer.component";
+import {HomeComponent} from "./FrontOffice/home/home.component";
+import {LoginComponent} from "./FrontOffice/User/login/login.component";
+import {RegisterComponent} from "./FrontOffice/User/register/register.component";
+import {CreateEventComponent} from "./BackOffice/EventBack/create-event/create-event.component";
+import {ListEventComponent} from "./BackOffice/EventBack/list-event/list-event.component";
+import {UpdateEventComponent} from "./BackOffice/EventBack/update-event/update-event.component";
+import {ViewAnimalsComponent} from "./FrontOffice/Animals/view-animals/view-animals.component";
+import {DetailsComponent} from "./FrontOffice/Animals/details/details.component";
+import {UpdateAnimalComponent} from "./FrontOffice/Animals/update-animal/update-animal.component";
+
+
+
+
 
 @NgModule({
     declarations: [
         AppComponent,
         AddAnimalComponent,
-        ViewAnimalsComponent,
-        UpdateAnimalComponent,
         HeaderComponent,
         FooterComponent,
         HomeComponent,
@@ -39,17 +47,25 @@ import { UsesComponentComponent } from './BackOffice/UserBackend/uses-component/
       FooterBackEndComponent,
       AdminBoardComponent,
       AccountComponent,
+
       UserListComponent,
       UnauthorizedComponent,
-      UsesComponentComponent
+      UsesComponentComponent,
+
+      CreateEventComponent,
+      ListEventComponent,
+      UpdateEventComponent,
+      ViewAnimalsComponent,
+      DetailsComponent,
+      UpdateAnimalComponent,
+
+
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-
     HttpClientModule,
-
+    FormsModule
   ],
   providers: [
     {
