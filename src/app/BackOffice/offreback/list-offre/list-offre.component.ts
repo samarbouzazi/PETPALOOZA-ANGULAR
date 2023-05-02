@@ -12,7 +12,7 @@ export class ListOffreComponent implements OnInit{
 
       
 offres!: Offre[];
-  
+isAdmin!:Boolean 
 constructor(private offreService: OffreserviceService,
   private router: Router) { }
 
@@ -21,6 +21,8 @@ ngOnInit(): void {
 }
 
 private getOffres(){
+  this.isAdmin=true
+  if (this.router.url==="/view-offres")  this.isAdmin=false
   this.offreService.getOffreList().subscribe(data => {
     this.offres = data;
     
@@ -30,6 +32,9 @@ private getOffres(){
 updateOffre(id: number){
   this.router.navigate(['update-offre',id]);
 }
+// statOffre(){
+//  this.offreService.getOffreStat().subscribe(data=>console.log('data',data))
+// }
 
 deleteOffre(id: number){
   this.offreService.deleteOffre(id).subscribe( data => {
