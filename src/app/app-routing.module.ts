@@ -9,6 +9,9 @@ import {RegisterComponent} from "./FrontOffice/User/register/register.component"
 import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {AdminBoardComponent} from "./BackOffice/admin-board/admin-board.component";
 import {AccountComponent} from "./FrontOffice/User/Account/account/account.component";
+import { CreateOffreComponent } from './BackOffice/offreback/create-offre/create-offre.component';
+import { ListOffreComponent } from './BackOffice/offreback/list-offre/list-offre.component';
+import { UpdateOffreComponent } from './BackOffice/offreback/update-offre/update-offre.component';
 
 const routes: Routes = [
 
@@ -22,6 +25,10 @@ const routes: Routes = [
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   {path:'admin', component:AdminBoardComponent},
+  {path: 'addoffre', component:CreateOffreComponent},
+  {path: 'offres', component:ListOffreComponent},
+  {path: 'update-offre', component:UpdateOffreComponent},
+
 ];
 
 @NgModule({
