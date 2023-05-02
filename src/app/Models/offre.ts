@@ -2,7 +2,7 @@ export class Offre
 {
      idJob!:number;
      price!: number;
-  beginningDate!: Date;
+     beginnigDate!: Date;
   endDate!: Date;
   title!: string;
   description!: string;

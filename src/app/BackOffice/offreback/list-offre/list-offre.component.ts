@@ -11,7 +11,7 @@ import { OffreserviceService } from 'src/app/services/Offre/offreservice.service
 export class ListOffreComponent implements OnInit{
 
       
-offre!: Offre[];
+offres!: Offre[];
   
 constructor(private offreService: OffreserviceService,
   private router: Router) { }
@@ -22,25 +22,18 @@ ngOnInit(): void {
 
 private getOffres(){
   this.offreService.getOffreList().subscribe(data => {
-    this.offre = data;
+    this.offres = data;
+    
   });
 }
 
-// updateOffre(id: number){
-//   this.router.navigate(['update-offre', id]);
-// }
-
-
-update_Offre(id: number) {
-  this.router.navigateByUrl(`update-offre/${id}`);
+updateOffre(id: number){
+  this.router.navigate(['update-offre',id]);
 }
-
 
 deleteOffre(id: number){
   this.offreService.deleteOffre(id).subscribe( data => {
-    console.log(data);
-    
-    this.getOffres();
+  this.getOffres();
    
   })
 }

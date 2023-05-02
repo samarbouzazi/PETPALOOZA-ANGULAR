@@ -27,7 +27,7 @@ const routes: Routes = [
   {path:'admin', component:AdminBoardComponent},
   {path: 'addoffre', component:CreateOffreComponent},
   {path: 'offres', component:ListOffreComponent},
-  {path: 'update-offre', component:UpdateOffreComponent},
+  {path: 'update-offre/:id', component:UpdateOffreComponent},
 
 ];
 
