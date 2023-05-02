@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Event } from 'src/app/Models/Event';
+import { Event } from 'src/app/models/event';
 import { EventService } from 'src/app/services/Evenement/event.service';
+
+
 
 @Component({
   selector: 'app-create-event',
@@ -21,13 +23,14 @@ export class CreateEventComponent implements OnInit {
   typeoffre : string[] = ['DON', 'VACCINATION','SENSIBILISATION'];
 
   saveEvent(){
-    // this.EventService.createEvent(this.event).subscribe( data =>{
-    //   console.log(data);
+    this.EventService.createEvent(this.event)
+    .subscribe( data =>{console
+      .log(data);
       
-    //   this.goToEventist();
+      this.goToEventist();
     
-    // },
-    // error => console.log(error));
+    },
+    error => console.log(error));
   }
 
   goToEventist(){

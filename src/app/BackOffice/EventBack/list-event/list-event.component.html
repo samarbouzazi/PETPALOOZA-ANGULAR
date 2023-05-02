@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-navbar></app-navbar>
+<br>
+<body>
+
+<div class="container">
+    <div >
+        <a [routerLink]="['/create-event']" class="btn btn-small btn-primary">Add New Event</a>
+    </div>  
+    <br>     
+  <table class="table table-success table-striped">
+    <thead>
+        <tr class="tm-bg-gray">
+                         
+            <th scope="col" class="text-center">Title</th>
+            <th scope="col" class="text-center">Description</th>
+            <th scope="col" class="text-center">type</th>
+            <th scope="col"class="text-center">max participants</th>
+            <th scope="col"class="text-center">location</th>
+            <th scope="col"class="text-center">date debut</th>
+            <th scope="col"class="text-center">date fin</th>
+            <th scope="col">Actions</th>
+           
+        </thead>
+        <tbody>
+
+            <tr  *ngFor = "let fct of event">
+                           
+                <td>{{ fct.titre }}</td>
+<td class="text-center">{{ fct.description }}</td>
+<td class="text-center">{{ fct.type }}</td>
+<td class="text-center">{{ fct.maxParticipants }}</td>
+<td class="text-center">{{ fct.location }}</td>
+<td class="text-center">{{ fct.dateDebut }}</td>
+<td class="text-center">{{ fct.dateFin }}</td>
+                 
+              
+<td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "deleteEvent(fct.numEvent)"></i>
+    <br>
+    <i class="fas fa-edit tm-edit-icon" (click)= "updateEvent(fct.numEvent)"></i>
+  
+  </td>
+              </tr>
+            </tbody>     
+    
+  </table>
+</div>
+
+</body>
+
+<app-footer-back-end></app-footer-back-end>
+</html>

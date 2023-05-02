@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Router} from "@angular/router";
-import {Register} from "../../Models/register";
+import {Register} from "../../models/register";
 import { map } from 'rxjs/operators';
 const AUTH_API = 'http://localhost:8888';
 const USER_KEY = 'bara123456789';
