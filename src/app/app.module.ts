@@ -6,8 +6,7 @@ import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddAnimalComponent } from './FrontOffice/Animals/add-animal/add-animal.component';
-import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
-import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
+
 
 import { FooterComponent } from './FrontOffice/shared/footer/footer.component';
 import { HomeComponent } from './FrontOffice/home/home.component';
@@ -21,15 +20,16 @@ import { HeaderComponent } from './FrontOffice/shared/header/header.component';
 import { CreateEventComponent } from './BackOffice/EventBack/create-event/create-event.component';
 import { ListEventComponent } from './BackOffice/EventBack/list-event/list-event.component';
 import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update-event.component';
+import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
+import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
+import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
 
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        AddAnimalComponent,
-        ViewAnimalsComponent,
-        UpdateAnimalComponent,
+        AddAnimalComponent,       
         HeaderComponent,
         FooterComponent,
         HomeComponent,
@@ -42,6 +42,9 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
       CreateEventComponent,
       ListEventComponent,
       UpdateEventComponent,
+      ViewAnimalsComponent,
+      DetailsComponent,
+      UpdateAnimalComponent,
       
     ],
   imports: [
