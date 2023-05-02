@@ -1,40 +1,73 @@
 <app-header></app-header>
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url('assets/images/bg_2.jpg');"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-end">
-            <div class="col-md-9 ftco-animated pb-5">
-                <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i
-                                class="ion-ios-arrow-forward"></i></a></span> <span>Gallery <i
-                            class="ion-ios-arrow-forward"></i></span></p>
-                <h1 class="mb-0 bread">Gallery</h1>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="ftco-section">
-    <div class="container">
-        <div class="row">
-            <div *ngFor="let animal of animals" class="col-md-4 ftco-animated">
-                <div class="work mb-4 img d-flex align-items-end"
-                [style.background-image]="'url(' + convert(animal.imageAnimal.content) + ')'" >
-                    <a href="assets/images/gallery-1.jpg"
-                        class="icon image-popup d-flex justify-content-center align-items-center">
-                        <span class="fa fa-expand"></span>
-                    </a>
-                    <div class="desc w-100 px-4">
-                        <div class="text w-100 mb-3">
-                            <span>{{animal.race}}</span>
-                            <h2><a href="work-single.html">{{animal.nameAnimal}}</a></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <form #fr="ngForm" (ngSubmit)="searchAnimalByName(fr)">
+
+      <div class="row">
+        <div class="col-4">
+          <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Look for your Animal!" 
+            [(ngModel)]="nameAnimal" style="width: 300px;border-radius: 30px;">
         </div>
+        <div class="col-2">
+           <button type="submit" class="btn btn-danger" style="margin-left: -70px;border-radius: 30px;">Search</button>
+        </div>
+        <div class="col-3">
+          <h6>Filter by Race</h6>
+          <select name="race" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="race"
+            (change)="filtreByRace()">
+            <option *ngFor="let race of allrace">{{race}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <h6> Filter by Gender</h6>
+          <select name="gender" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="gender"
+            (change)="filtreByGender()">
+            <option>Male</option>
+            <option>Femelle</option>
+          </select>
+        </div>
+
+      </div>
+
+
+
+    </form>
+  </div>
+
+  <br>
+  <br>
+  <div class="container">
+
+
+    <div class="row">
+      <div _ngcontent-vgd-c5="" class="col-md-4 d-flex ftco-animated" *ngFor="let a of animals"  >
+        <div _ngcontent-vgd-c5="" class="blog-entry align-self-stretch"><a _ngcontent-vgd-c5="" href="blog-single.html"
+            class="block-20 rounded" style="background-image: url('http://localhost/img/{{a.image}}.jpg'); border-color: red;"></a>
+          <div _ngcontent-vgd-c5="" class="text p-4" style="border-color: red;">
+            <div _ngcontent-vgd-c5="" class="meta mb-2">
+              <div _ngcontent-vgd-c5=""><a _ngcontent-vgd-c5="" href="#">{{a.nameAnimal}}  , </a></div>
+              <div _ngcontent-vgd-c5=""><a _ngcontent-vgd-c5="" href="#">{{a.race}}</a></div>
+              <div _ngcontent-vgd-c5=""><a _ngcontent-vgd-c5="" href="#" class="meta-chat"><span _ngcontent-vgd-c5=""
+                    class="fa fa-venus-mars"></span>, {{a.gender}}</a></div>
+                    
+            </div>
+            <h3 _ngcontent-vgd-c5="" class="heading" style="width: 250px;"><a _ngcontent-vgd-c5="" href="#" >{{a.description}}</a></h3>
+          </div>
+          <button [routerLink]="['/detailsAnimal',a.idAnimal]" class="btn btn-danger" style="margin-bottom: 10px;margin-left: 10px;">Show more details</button>
+        </div>
+        
+
+      </div>
+
+
     </div>
+
+  </div>
+
+
+
+
 </section>
 
 
