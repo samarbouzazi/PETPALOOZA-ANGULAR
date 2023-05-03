@@ -52,13 +52,25 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="products.html">Products</a>
+                                    <a class="nav-link" href="products.html">Job Offer</a>
                                 </li>
               
-                                <li class="nav-item">
-                                    <a class="nav-link" href="accounts.html">Accounts</a>
-                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/animals/view-animal-back']">Animals</a>
+                                </li> -->
+
                                 <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Animals
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item"[routerLink]="['/animals/view-animal-back']">Liste</a>
+                                        <a class="dropdown-item"[routerLink]="['/animals/add-back']">Ajouter</a>
+                                    
+                                    </div>
+                                </li>                              
+                                  <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                         Settings

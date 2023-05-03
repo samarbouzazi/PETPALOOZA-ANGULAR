@@ -14,6 +14,9 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
 import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
+import { AddAnimalBackComponent } from './BackOffice/AnimalsbBack/add-animal-back/add-animal-back.component';
+import { ViewAnimalBackComponent } from './BackOffice/AnimalsbBack/view-animal-back/view-animal-back.component';
+import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-animal-back/update-animal-back.component';
 
 const routes: Routes = [
 
@@ -34,6 +37,9 @@ const routes: Routes = [
   { path : "animals/add" , component : AddAnimalComponent },
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
   { path : "detailsAnimal/:id" , component : DetailsComponent },
+  { path : "animals/add-back" , component :AddAnimalBackComponent},
+  { path : "animals/view-animal-back" , component : ViewAnimalBackComponent},
+  { path : "update-animal-back/:id" , component : UpdateAnimalBackComponent}
 ];
 
 @NgModule({
