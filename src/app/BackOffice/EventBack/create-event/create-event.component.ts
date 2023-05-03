@@ -20,7 +20,7 @@ export class CreateEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  types : string[] = ['DON', 'VACCINATION','SENSIBILISATION'];
+  typeoffre : string[] = ['DON', 'VACCINATION','SENSIBILISATION'];
 
   saveEvent(){
     this.EventService.createEvent(this.event)
