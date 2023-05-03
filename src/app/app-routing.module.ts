@@ -25,6 +25,7 @@ const routes: Routes = [
 
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
   // {path:'', component:HomeComponent, pathMatch:'full'},
+  { path: '', component: HomeComponent },
   { path: 'unauthorized', component: UnauthorizedComponent, canActivate: [AuthGuardService] },
   { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path : "animals/add" , component : AddAnimalComponent },
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
   { path : "detailsAnimal:id" , component : DetailsComponent },
+
 ];
 // =======
 //   { path: '', component: HomeComponent },

@@ -98,8 +98,9 @@ export class AuthService {
 
 
 
-  SendForgetPWD(email: string) {
-    return this.http.post<any>(AUTH_API + 'public/user/forgot_password/?email=' + email, email,
+  SendForgetPWD(email: NgForm) {
+    console.log(email);
+    return this.http.post<any>(AUTH_API + 'public/user/forgot_password/?email=' + email,
       {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
         responseType: 'text' as 'json'

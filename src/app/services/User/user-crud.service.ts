@@ -20,16 +20,6 @@ export class UserCrudService {
   }
 
   blockUser(id:number): Observable<any> {
-
-return this.http.put(API_URL+'/admin/user/block/'+ id, undefined);
+   return this.http.put(API_URL+'/admin/user/block/'+ id, undefined);
   }
-
-
-
-
-
-
-
-
-
 }
