@@ -20,7 +20,7 @@
             
             <th scope="col"class="text-center">date debut</th>
             <th scope="col"class="text-center">date fin</th>
-            <th scope="col">Actions</th>
+            <th scope="col" *ngIf=this.isAdmin>Actions</th>
            
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
 
                  
               
-                <td class="text-center">
+                <td class="text-center" *ngIf=this.isAdmin>
                     <i class="fas fa-trash-alt tm-trash-icon" (click)="deleteOffre(fct.idJob)"></i>
                     <br>
                     <button class="fas fa-edit tm-edit-icon" (click)="updateOffre(fct.idJob)"></button>

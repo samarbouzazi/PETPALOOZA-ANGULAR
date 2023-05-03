@@ -20,6 +20,10 @@ export class OffreserviceService {
   createOffre(fct: Offre): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/addoffre`, fct);
   }
+  
+  getOffreStat(): Observable<any>{
+    return this.httpClient.get<any>(`${this.baseURL}/statjoboffre`);
+  }
 
 
   updateOffre(fct: Offre, id:number): Observable<Object>{
