@@ -30,20 +30,6 @@ return this.http.put(API_URL+'/admin/user/block/'+ id, undefined);
 
 
 
-  //
-  //
-  //
-  // getUserBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'user', );
-  // }
-  //
-  // getModeratorBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'mod', {responseType: 'text'});
-  // }
-  //
-  // getAdminBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'admin', {responseType: 'text'});
-  // }
 
 
 }
