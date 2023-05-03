@@ -49,13 +49,10 @@ const routes: Routes = [
 
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
   { path : "detailsAnimal/:id" , component : DetailsComponent },
-<<<<<<< HEAD
+
   { path : "animals/add-back" , component :AddAnimalBackComponent},
   { path : "animals/view-animal-back" , component : ViewAnimalBackComponent},
   { path : "update-animal-back/:id" , component : UpdateAnimalBackComponent}
-=======
-
->>>>>>> dc09c358264564a9c9d3fe9caa130f62cd633567
 ];
 
 @NgModule({

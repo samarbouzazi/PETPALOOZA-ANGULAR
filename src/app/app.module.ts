@@ -59,14 +59,10 @@ import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-anim
       ViewAnimalsComponent,
       DetailsComponent,
       UpdateAnimalComponent,
-<<<<<<< HEAD
       AddAnimalBackComponent,
       ViewAnimalBackComponent,
       UpdateAnimalBackComponent,    
-=======
 
-      
->>>>>>> dc09c358264564a9c9d3fe9caa130f62cd633567
     ],
 
   imports: [
