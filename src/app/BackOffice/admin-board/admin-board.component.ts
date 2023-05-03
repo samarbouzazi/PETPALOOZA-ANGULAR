@@ -37,15 +37,6 @@ export class AdminBoardComponent  implements  OnInit{
   }
 
 
-  // public getAll() :Observable<User[]> {
-  //   const url = "http://localhost:8888/admin/user/list";
-  //   const headers = new HttpHeaders({
-  //     Authorization: "Bearer " + btoa("user:bara123456789")
-  //   });
-  //   return this.http.get<User[]>(url, { headers });
-  // }
-
-  //
 
 
 

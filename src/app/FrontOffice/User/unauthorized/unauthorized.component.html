@@ -13,7 +13,10 @@
         <div class="msg">OH!<span class="triangle"></span></div>
       </div>
       <h2 class="h1">Sorry! But your are not Authorized </h2>
-      <strong routerLink="/admin"> back Home</strong>
+      <strong routerLink="/admin"> <a (click)="doRedirect()"></a>  back Home</strong>
+
+
+<!--      <button class="btn-primary btn " (click)="doRedirect()">  Redirect meat</button>-->
     </div>
   </div>
 </div>

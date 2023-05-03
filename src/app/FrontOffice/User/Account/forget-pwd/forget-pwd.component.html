@@ -1,0 +1,8 @@
+<form (submit)="sendVerifyEmail()">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" placeholder="Enter email" required>
+    <small class="form-text text-muted">We'll send you a verification link to reset your password.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Send verification email</button>
+</form>

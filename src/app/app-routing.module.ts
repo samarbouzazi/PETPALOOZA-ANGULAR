@@ -17,6 +17,8 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
 import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
+import {ForgetPWDComponent} from "./FrontOffice/User/Account/forget-pwd/forget-pwd.component";
+import {Test99Component} from "./FrontOffice/User/Account/test99/test99.component";
 
 
 const routes: Routes = [
@@ -29,8 +31,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
+  //{ path: 'verifyAccountLink', component: RegisterComponent },
+  {path :'forgetPWD' ,component: ForgetPWDComponent},
 
-
+  { path: 'verifyAccountLink', component: Test99Component, pathMatch: 'full' },
 
 
 
@@ -40,26 +44,13 @@ const routes: Routes = [
     {path: 'update-event/:id', component: UpdateEventComponent},
 
 
+   {path:'test', component:AdminBoardComponent},
 
-
-//{ path: 'test', loadChildren: () => import('../app/BackOffice/admin-board/admin-board.component').then(m => m.AdminBoardComponent), canLoad: [AuthGuardService] },
-{path:'test', component:AdminBoardComponent},
- //  {
- //    path: 'test',
- //    loadChildren: () => import('../app/BackOffice/admin-board/admin-board.component').then(m => m.AdminBoardComponent),
- //    canActivate: [AuthGuardService]
- //  },
- //  {
- //    path: 'test',
- //    component: AdminBoardComponent,
- //    canActivate: [ AuthGuardService ]
-
- //  },
 
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
-  { path : "detailsAnimal/:id" , component : DetailsComponent },
+  { path : "detailsAnimal:id" , component : DetailsComponent },
 ];
 // =======
 //   { path: '', component: HomeComponent },

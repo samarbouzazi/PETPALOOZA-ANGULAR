@@ -3,12 +3,12 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable, of, tap} from 'rxjs';
+import {Observable, of, tap, throwError} from 'rxjs';
 import {Router} from "@angular/router";
 import {Register} from "../../models/register";
-import { map } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {NgForm} from "@angular/forms";
-const AUTH_API = 'http://localhost:8888';
+const AUTH_API = 'http://localhost:8888/';
 const USER_KEY = 'bara123456789';
 
 interface bara {
@@ -24,7 +24,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private API_URL = 'http://localhost:8888';
+  private API_URL = 'http://localhost:8888/';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -94,39 +94,142 @@ export class AuthService {
   // }
 
 
-  signup(register: Register): Observable<any> {
-    return this.http.post<any>(AUTH_API + 'public/register', register,
-      {
-        headers: new HttpHeaders({'Content-Type': 'application/json'}),
-        responseType: 'text' as 'json'
-      }).pipe(map((resp) => {
-      return resp;
-    }));
-  }
+  // signup(register: Register): Observable<any> {
+  //   return this.http.post<any>(AUTH_API + 'public/register', register,
+  //     {
+  //       headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  //       responseType: 'text' as 'json'
+  //     }).pipe(map((resp) => {
+  //     return resp;
+  //   }));
+  // }
 
 
   registerTWO(register: Register): Observable<any> {
     return this.http.post(
-      AUTH_API + '/public/register',
+      AUTH_API + 'public/register',
       register,
       httpOptions
     );
   }
 
+ //  SendVificationEmail(email: string)
+ // {
+ //   console.log("the email is " + email);
+ //    return this.http.post<any>(AUTH_API + '/public/user/sendVerification/?email=' + email,
+ //      {
+ //        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+ //        responseType: 'text' as 'json'
+ //      }).pipe(map((resp) => {
+ //      return resp;
+ //    }));
+ //  }
 
-  SendVificationEmail(email: string) {
-    return this.http.post<any>(AUTH_API + 'public/user/sendVerification/?email=' + email, email,
-      {
-        headers: new HttpHeaders({'Content-Type': 'application/json'}),
-        responseType: 'text' as 'json'
-      }).pipe(map((resp) => {
-      return resp;
-    }));
+
+
+  SendVificationEmail(email:string){  return this.http.post<any>(AUTH_API + 'public/user/sendVerification/?email='+email, email,
+    {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'}).pipe(map((resp) => {
+    return resp;
+  }));
   }
+
+
+
+
+
+  // AccepteVirficationEmail(email: string) {
+  //   return this.http.post<any>(AUTH_API + 'public/user/verifyAccountLink/?email=' + email, email,
+  //     {
+  //       headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  //       responseType: 'text' as 'json'
+  //     }).pipe(map((resp) => {
+  //     return resp;
+  //   }));
+  // }
+
+
+
+  //
+  // AccepteVirficationEmail(email: string) {
+  //   return this.http.get<any>(AUTH_API + 'public/user/verifyAccountLink/?email=' + email,
+  //     {
+  //       headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  //       responseType: 'text' as 'json'
+  //     }).pipe(map((resp) => {
+  //     return resp;
+  //   }));
+  // }
+
+
+
+  // AccepteVirficationEmail(email: string) {
+  //   const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   const options = {headers: headers, responseType: 'text' as 'json'};
+  //   const body = JSON.stringify({email: email});
+  //   //alert("the email is "+ email   +"    and the body is "+ body);
+  //   return this.http.post<any>(AUTH_API + 'public/user/verifyAccountLink/?email=',+ email, options).pipe(
+  //
+  //     map((resp) => {
+  //       return resp;
+  //     })
+  //   );
+  // }
+
+
+  //
+  // AccepteVirficationEmail(email: string) {
+  //   const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   const options = {headers: headers, responseType: 'text' as 'json'};
+  //   const url = `${AUTH_API}public/user/verifyAccountLink/?email=${email}`;
+  //
+  //   return this.http.post<any>(url, {}, options).pipe(
+  //     map((resp) => {
+  //       return resp;
+  //     }),
+  //     catchError((err) => {
+  //       console.log(err); // log the error object to the console
+  //       return throwError(err);
+  //     })
+  //   );
+  // }
+
 
 
   AccepteVirficationEmail(email: string) {
-    return this.http.post<any>(AUTH_API + 'public/user/verifyAccountLink/?email' + email, email,
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = {headers: headers, responseType: 'text' as 'json'};
+    const emailEncoded = encodeURIComponent(email);
+    const url = `${AUTH_API}public/user/verifyAccountLink/?email=${emailEncoded}`;
+
+    return this.http.post<any>(url, {}, options).pipe(
+      map((resp) => {
+        return resp;
+      }),
+      catchError((err) => {
+        console.log(err); // log the error object to the console
+        return throwError(err);
+      })
+    );
+  }
+
+
+  //
+  // AccepteVirficationEmail(email: string) {
+  //   const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   const options = {headers: headers, responseType: 'text' as 'json'};
+  //
+  //   // concatenate the email parameter to the URL
+  //   const url = AUTH_API + 'public/user/verifyAccountLink/?email=' + email;
+  //
+  //   return this.http.post<any>(url, {}, options).pipe(
+  //     map((resp) => {
+  //       return resp;
+  //     })
+  //   );
+  // }
+
+  SendForgetPWD(email: string) {
+    return this.http.post<any>(AUTH_API + 'public/user/forgot_password/?email=' + email, email,
       {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
         responseType: 'text' as 'json'
@@ -134,6 +237,7 @@ export class AuthService {
       return resp;
     }));
   }
+
 
 
   // public loginr(username: string, password: string): Observable<any> {
@@ -160,7 +264,7 @@ export class AuthService {
 
   public Login(username: string, password: string) {
     return this.http.post(
-      AUTH_API + '/public/login',
+      AUTH_API + 'public/login',
       {
         username,
         password,

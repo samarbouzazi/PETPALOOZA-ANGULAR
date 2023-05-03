@@ -6,6 +6,7 @@ import {Observable, tap} from "rxjs";
 import {HttpInterceptor} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {UserService} from "../../../services/User/user.service";
+import Swal from "sweetalert2";
 const ROLE_USER = 'ROLE_USER';
 const ROLE_ADMIN = 'ROLE_ADMIN';
 const AUTH_API = 'http://localhost:8888';
@@ -173,24 +174,24 @@ export class LoginComponent implements OnInit {
 
     this.authService.Login(username, password).subscribe(
       (response : any)=>{
-        console.log("  the response is  "+ JSON.stringify(response.accessToken));
-        console.log(" \n the role is  is  "+ JSON.stringify(response.roles));
-        console.log(" \n the hole object   is  "+ JSON.stringify(response));
+        // console.log("  the response is  "+ JSON.stringify(response.accessToken));
+        // console.log(" \n the role is  is  "+ JSON.stringify(response.roles));
+        // console.log(" \n the hole object   is  "+ JSON.stringify(response));
 
 
         this.userS.setRoles(response.roles);
 
 
 
-        alert("the respanse is    :  "+ JSON.stringify(response));
+     //   alert("the respanse is    :  "+ JSON.stringify(response));
 
         this.userS.setToken(response.accessToken);
         localStorage.setItem("id", response.id);
         localStorage.setItem("username", response.username);
         localStorage.setItem("email", response.email);
-        console.log(" \n \n now the token is   "+ this.userS.getToken())
+        ///console.log(" \n \n now the token is   "+ this.userS.getToken())
 
-        console.log(" \n \n now the role is   "+ this.userS.getRoles())
+        //console.log(" \n \n now the role is   "+ this.userS.getRoles())
 
       //  if(response.user.role)
 
@@ -208,6 +209,9 @@ export class LoginComponent implements OnInit {
       },
       (error)=>{
     //    console.log("error "+ error);
+
+        Swal.fire("There is some error please verify your input and also verify you have an active account !", "error");
+
       }
 
 

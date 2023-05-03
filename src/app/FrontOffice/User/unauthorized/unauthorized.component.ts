@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {UserService} from "../../../services/User/user.service";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-unauthorized',
   templateUrl: './unauthorized.component.html',
@@ -47,4 +49,18 @@ export class UnauthorizedComponent implements  AfterViewInit {
       }
     }, time);
   }
+
+constructor(private  UserS: UserService, private route:Router) {
+
+}
+
+doRedirect(){
+  const roles= this.UserS.getRoles();
+    if(roles.includes( 'ROLE_ADMIN')){
+      this.route.navigate(['/admin']);
+    }else{
+      this.route.navigate(['/home']);
+    }
+}
+
 }

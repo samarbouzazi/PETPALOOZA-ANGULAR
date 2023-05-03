@@ -90,7 +90,7 @@
         >
         <div class="alert-danger alert"  *ngIf="pwd.invalid && pwd.touched">
           <div *ngIf="pwd.errors?.['required']" >the password field  is requerd</div>
-          <div *ngIf="pwd.errors?.['minlength']" >the password  must be greater than 6 characters pwd: {{ pwd.value }}</div>
+          <div *ngIf="pwd.errors?.['minlength']" >the password  must be greater than 6 characters pwd </div>
 
         </div>
       </div>

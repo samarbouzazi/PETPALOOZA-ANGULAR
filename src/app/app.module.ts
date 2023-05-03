@@ -29,6 +29,8 @@ import {UpdateEventComponent} from "./BackOffice/EventBack/update-event/update-e
 import {ViewAnimalsComponent} from "./FrontOffice/Animals/view-animals/view-animals.component";
 import {DetailsComponent} from "./FrontOffice/Animals/details/details.component";
 import {UpdateAnimalComponent} from "./FrontOffice/Animals/update-animal/update-animal.component";
+import { ForgetPWDComponent } from './FrontOffice/User/Account/forget-pwd/forget-pwd.component';
+import { Test99Component } from './FrontOffice/User/Account/test99/test99.component';
 
 
 
@@ -58,6 +60,8 @@ import {UpdateAnimalComponent} from "./FrontOffice/Animals/update-animal/update-
       ViewAnimalsComponent,
       DetailsComponent,
       UpdateAnimalComponent,
+      ForgetPWDComponent,
+      Test99Component,
 
 
     ],

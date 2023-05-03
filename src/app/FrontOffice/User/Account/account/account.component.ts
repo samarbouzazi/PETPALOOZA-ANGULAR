@@ -18,6 +18,9 @@ export class AccountComponent implements OnInit {
 
     this.currentUser = this.userS.getUser();
 
+    const id = localStorage.getItem("id");
+    console.log("The fucking id is \n "+ id);
+
     console.log(" \n the current user ishhhhhhhhhh "+ this.currentUser);
 // =======
 //     this.currentUser = this.storageService.getUser();
