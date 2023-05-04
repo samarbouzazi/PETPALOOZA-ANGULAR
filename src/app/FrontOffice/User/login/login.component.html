@@ -51,7 +51,10 @@
   </div> <!-- /.container -->
 </section>
 
-<div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+
+<!--<div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true" style="">-->
+  <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true" style="" id="forget-modal">
+
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -61,10 +64,12 @@
         </button>
         <h4 class="modal-title">Recovery password</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body " >
         <p>Type your email account</p>
+
+
         <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
-      </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-custom">Recovery</button>
@@ -83,3 +88,4 @@
     </div>
   </div>
 </footer>
+</div>
