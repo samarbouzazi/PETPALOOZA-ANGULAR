@@ -35,39 +35,35 @@
                         </div>
                     </div>
                     <div class="col-md-8 services-2 w-100 d-flex" style="width: 300px;">
-                        <div class="row">
-                            <div class="col-3" style="margin-left: 100px;">
-
-                                <button class="btn btn-danger" type="button" (click)="Addlike()" [disabled]="test"><i class="fa fa-thumbs-up" style="color:antiquewhit;font-size:24px"></i>
-                                    {{nblike}} </button>
-
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-3">
+                              <button class="btn btn-primary w-100" type="button" (click)="Addlike()" [disabled]="test">
+                                <i class="fa fa-thumbs-up me-2"></i> {{nblike}}
+                              </button>
                             </div>
                             <div class="col-3">
-
-                                <button class="btn btn-danger" type="button" (click)="AddDislike()"><i class="fa fa-thumbs-down" style="color:antiquewhit;font-size:24px"></i> {{nbDislike}} </button>
-
+                              <button class="btn btn-primary w-100" type="button" (click)="AddDislike()">
+                                <i class="fa fa-thumbs-down me-2"></i> {{nbDislike}}
+                              </button>
                             </div>
                             <div class="col-3">
-
-                                <button class="btn btn-danger" type="button"  (click)="addInteressted()"><i class="fa fa-star" style="color:antiquewhit;font-size:24px"></i> {{nbrInteressted}}  </button>
-
+                              <button class="btn btn-primary w-100" type="button" (click)="addInteressted()">
+                                <i class="fa fa-star me-2"></i> {{nbrInteressted}}
+                              </button>
                             </div>
-
-
-                        </div>
+                          </div>
+                          
                       
                     </div>
-                    <div class="row" style="margin-left: 450px;">
-
-                            <div class="col-6">
-                                <button  (click)="DeletAnimal()"   class="btn btn-danger">Delete</button>
-                            </div>
-
-                            <div class="col-6">
-                                <button [routerLink]="['/UpdateAnimale',animal.idAnimal]"  class="btn btn-danger">Modify</button>
-                            </div>
-
-                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                          <button (click)="DeletAnimal()" class="btn btn-danger btn-block">Delete</button>
+                        </div>
+                        <div class="col-4">
+                          <button [routerLink]="['/UpdateAnimale', animal.idAnimal]" class="btn btn-primary btn-block">Modify</button>
+                        </div>
+                      </div>
+                      
        
                 </div>
         </div>

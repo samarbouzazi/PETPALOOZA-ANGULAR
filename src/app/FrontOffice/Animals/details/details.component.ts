@@ -20,6 +20,7 @@ export class DetailsComponent  implements OnInit{
   test!:any;
 
   animalUser!:any
+//id!: number;
 
   //idUser=localStorage.getItem('id');
 // *ngIf="animal.userAnimal == idUser"  html
@@ -28,6 +29,7 @@ export class DetailsComponent  implements OnInit{
 
 
   ngOnInit(): void {
+   // const id= localStorage.getItem("id");
 
     this.idAnimal=this.router.snapshot.paramMap.get('id');
 
@@ -100,13 +102,21 @@ this.test=this.animalUser.liked;
     window.location.reload()
 }
 
-DeletAnimal(){
-  this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
-  this.route.navigate(['/animals']).then(() => {
-    location.reload();
-  });
-}
+// DeletAnimal(){
+//   this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
+//   this.route.navigate(['/animals']).then(() => {
+//     location.reload();
+//   });
+// }
 
+DeletAnimal() {
+  if (confirm("Are you sure you want to delete this animal?")) {
+    this.service.DeleteAnimalById(this.idAnimal).subscribe(res => console.log(res));
+    this.route.navigate(['/animals']).then(() => {
+      location.reload();
+    });
+  }
+}
 
 
 }
