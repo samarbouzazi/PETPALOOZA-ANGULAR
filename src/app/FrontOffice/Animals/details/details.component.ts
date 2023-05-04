@@ -102,13 +102,21 @@ this.test=this.animalUser.liked;
     window.location.reload()
 }
 
-DeletAnimal(){
-  this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
-  this.route.navigate(['/animals']).then(() => {
-    location.reload();
-  });
-}
+// DeletAnimal(){
+//   this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
+//   this.route.navigate(['/animals']).then(() => {
+//     location.reload();
+//   });
+// }
 
+DeletAnimal() {
+  if (confirm("Are you sure you want to delete this animal?")) {
+    this.service.DeleteAnimalById(this.idAnimal).subscribe(res => console.log(res));
+    this.route.navigate(['/animals']).then(() => {
+      location.reload();
+    });
+  }
+}
 
 
 }
