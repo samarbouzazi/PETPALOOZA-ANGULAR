@@ -8,4 +8,5 @@ export class Offre
   description!: string;
   offretype!: string;
   nbintereteds!: number;
+  localisation !: string;
 }

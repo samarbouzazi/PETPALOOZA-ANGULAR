@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Offre } from 'src/app/Models/offre';
+import { Offre } from 'src/app/models/offre';
 import { OffreserviceService } from 'src/app/services/Offre/offreservice.service';
 
 @Component({

@@ -19,6 +19,10 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
 import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
+import { ListJobComponent } from './FrontOffice/offer-job/list-job/list-job.component';
+import { AddJobComponent } from './FrontOffice/offer-job/add-job/add-job.component';
+import { UpdateJobComponent } from './FrontOffice/offer-job/update-job/update-job.component';
+import { SingleJobComponent } from './FrontOffice/offer-job/single-job/single-job.component';
 
 
 const routes: Routes = [
@@ -47,6 +51,12 @@ const routes: Routes = [
 
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
   { path : "detailsAnimal/:id" , component : DetailsComponent },
+  { path : "add-jobOffre" , component : AddJobComponent },
+  { path : "list-jobOffre" , component : ListJobComponent },
+  { path : "update-jobOffre" , component : UpdateJobComponent },
+  { path : "single-jobOffre" , component : SingleJobComponent },
+
+
 
 ];
 

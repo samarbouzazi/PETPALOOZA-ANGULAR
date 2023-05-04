@@ -28,6 +28,10 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
+import { ListJobComponent } from './FrontOffice/offer-job/list-job/list-job.component';
+import { AddJobComponent } from './FrontOffice/offer-job/add-job/add-job.component';
+import { UpdateJobComponent } from './FrontOffice/offer-job/update-job/update-job.component';
+import { SingleJobComponent } from './FrontOffice/offer-job/single-job/single-job.component';
 
 
 
@@ -56,6 +60,10 @@ import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/updat
       ViewAnimalsComponent,
       DetailsComponent,
       UpdateAnimalComponent,
+      ListJobComponent,
+      AddJobComponent,
+      UpdateJobComponent,
+      SingleJobComponent,
 
       
     ],

@@ -1,0 +1,107 @@
+<app-header>
+
+</app-header>
+
+  
+
+<h2 class="mb-4">Add JobOffre</h2>
+                  <form action="#" class="offer-job">
+                      <div class="row">
+                          <div class="col-md-12">
+                                  <div class="form-group">
+                                  <div class="form-field">
+                                <div class="select-wrap">
+                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                        <select name="" id="" class="form-control">
+                            <option value="">Select services</option>
+                          <option value="">Cat Sitting</option>
+                          <option value="">Dog Walk</option>
+                          <option value="">Pet Spa</option>
+                          <option value="">Pet Grooming</option>
+                          <option value="">Pet Daycare</option>
+                        </select>
+                      </div>
+                        </div>
+                              </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                        <input type="text" class="form-control" placeholder="JOB title">
+                      </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                        <input type="text" class="form-control" placeholder="prix">
+                      </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                  <div class="input-wrap">
+                              <div class="icon"><span class="fa fa-calendar"></span></div>
+                              <input type="date" class="form-control appointment_date" placeholder="beginnigDate">
+                          </div>
+                              </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                  <div class="input-wrap">
+                              <div class="icon"><span class="fa fa-clock-o"></span></div>
+                              <input type="date" class="form-control appointment_time" placeholder="endDate">
+                          </div>
+                              </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                      <input type="text" class="form-control" placeholder="localisation">
+                    </div>
+                            </div>
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Description"></textarea>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <label for="image" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Image</label>
+                        <div class="custom-file col-xl-8 col-lg-8 col-md-8 col-sm-7">
+                          <input type="file" class="custom-file-input" id="image" name="image" (change)="onFileInput($JobOffre)">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                      </div>
+              
+                
+                      <fieldset class="form-group">
+                        <div class="row">
+                          <legend class="col-form-label col-sm-2 pt-0">offre type</legend>
+                          <div class="col-sm-10">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                              <label class="form-check-label" for="gridRadios1">
+                                Demande
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                              <label class="form-check-label" for="gridRadios2">
+                                Offre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" value="Submit">
+
+                      </div>
+                              </div>
+                      </div>
+            </form>
+            
+              
+
+
+<app-footer>
+
+
+</app-footer>
