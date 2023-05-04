@@ -112,6 +112,27 @@ export class AuthService {
 
 
 
+  ChangePWD(token: string, password:NgForm) {
+    console.log("\n the token is :"+token);
+    console.log("\n the password is : "+password);
+    return this.http.post<any>(AUTH_API + 'public/user/reset_password/?token=' + token +'&password='+ password,
+      {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        responseType: 'text' as 'json'
+      }).pipe(map((resp) => {
+      return resp;
+    }));
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 

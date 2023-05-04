@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../../services/User/auth.service";
-import {Route, Router} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {map} from "rxjs/operators";
+import Swal from "sweetalert2";
 const AUTH_API = 'http://localhost:8888/';
 
 @Component({
@@ -11,26 +12,57 @@ const AUTH_API = 'http://localhost:8888/';
   templateUrl: './forget-pwd.component.html',
   styleUrls: ['./forget-pwd.component.css']
 })
-export class ForgetPWDComponent {
-  constructor(private authService: AuthService, private route: Router, private http: HttpClient) {
+export class ForgetPWDComponent implements OnInit{
+  constructor(private authService: AuthService, private route: Router, private http: HttpClient, private acitveRoute: ActivatedRoute) {
   }
 
-  email!: string;
+  token?:string;
+
+  ngOnInit(): void {
+    this.token =  String(this.acitveRoute.snapshot.queryParamMap.get('token'));
+    var tt=String(this.acitveRoute.snapshot.queryParamMap.get('token'));
+    console.log('the token is ' + this.token);
+  }
 
 
-  sendAResetPwdLink(form: NgForm) {
+  changePWD(form: NgForm){
+    this.authService.ChangePWD(String(this.token) , form.value.password).subscribe(
+      res=> {
+        Swal.fire("ok you have update it you pwd ")
+        this.route.navigateByUrl('/login');
+      },
+      err=>{
+      //  Swal.fire('errror', 'error');
 
-    console.log(form.value.email);
-    this.authService.SendForgetPWD(form.value.email).subscribe(res => {
-      alert("okkk")
-    }, error => {
-      alert("not okk")
-    })
+      }
 
+    )
+    //this.authService.
   }
 
 
 }
+
+
+
+
+
+  // email!: string;
+
+
+//   sendAResetPwdLink(form: NgForm) {
+//
+//     console.log(form.value.email);
+//     this.authService.SendForgetPWD(form.value.email).subscribe(res => {
+//       alert("okkk")
+//     }, error => {
+//       alert("not okk")
+//     })
+//
+//   }
+//
+//
+// }
 
 //
 // sendVerifyEmail(){
@@ -54,3 +86,7 @@ export class ForgetPWDComponent {
 // }
 // }
 
+//   ngOnInit(): void {
+//     this.token = String(this.acitveRoute.snapshot.paramMap.get('token'));
+//   console.log("the token is "+ this.token);
+// }

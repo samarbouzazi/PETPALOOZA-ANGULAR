@@ -66,14 +66,16 @@
       </div>
       <div class="modal-body " >
         <p>Type your email account</p>
+        <form #PWDform="ngForm" (submit)="sendAResetPwdLink(PWDform)" #f="ngForm">
 
-
-        <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
+        <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off" id="email" name="email" #E="ngModel"   ngModel pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-custom">Recovery</button>
+        <button type="submit"     class="btn btn-custom">Recovery</button>
+
       </div>
+        </form>
     </div> <!-- /.modal-content -->
   </div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->

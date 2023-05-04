@@ -274,7 +274,7 @@ export class RegisterComponent  implements OnInit {
             this.email = '';
             Swal.fire({
               title: 'Error!',
-              text: `Email '${email}' is already in use. Please choose another email or veifiy if your already sigined up .`,
+              text: `Email '${email}' is already in use. Please choose another email or verify if your already sigined up .`,
               icon: 'error',
               confirmButtonText: 'OK'
             });
