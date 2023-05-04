@@ -30,7 +30,7 @@ import {ViewAnimalsComponent} from "./FrontOffice/Animals/view-animals/view-anim
 import {DetailsComponent} from "./FrontOffice/Animals/details/details.component";
 import {UpdateAnimalComponent} from "./FrontOffice/Animals/update-animal/update-animal.component";
 import { ForgetPWDComponent } from './FrontOffice/User/Account/forget-pwd/forget-pwd.component';
-import { Test99Component } from './FrontOffice/User/Account/test99/test99.component';
+import { Test99Component } from './FrontOffice/User/Account/VerifyAccount/test99.component';
 
 
 

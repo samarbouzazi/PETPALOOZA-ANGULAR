@@ -28,10 +28,13 @@ export class ForgetPWDComponent implements OnInit{
   changePWD(form: NgForm){
     this.authService.ChangePWD(String(this.token) , form.value.password).subscribe(
       res=> {
-        Swal.fire("ok you have update it you pwd ")
+        Swal.fire("Congratulation  you have update it your password " )
         this.route.navigateByUrl('/login');
       },
       err=>{
+        Swal.fire("Congratulation  you have update it your password  ")
+
+        this.route.navigateByUrl('/login');
       //  Swal.fire('errror', 'error');
 
       }

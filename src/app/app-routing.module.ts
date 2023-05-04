@@ -18,7 +18,7 @@ import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/updat
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
 import {ForgetPWDComponent} from "./FrontOffice/User/Account/forget-pwd/forget-pwd.component";
-import {Test99Component} from "./FrontOffice/User/Account/test99/test99.component";
+import {Test99Component} from "./FrontOffice/User/Account/VerifyAccount/test99.component";
 
 
 const routes: Routes = [

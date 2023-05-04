@@ -6,11 +6,15 @@ import {Router} from "@angular/router";
 const API_URL = 'http://localhost:8888';
 const USER_KEY = 'bara123456789';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private http: HttpClient, private  router: Router) {}
+
+
 
   public setRoles(roles:[]){
     localStorage.setItem("roles", JSON.stringify(roles));
@@ -49,7 +53,10 @@ export class UserService {
   }
 
 
+/////////////////
 
+
+  ////////////
 
 
 

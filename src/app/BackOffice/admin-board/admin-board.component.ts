@@ -7,6 +7,13 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 
+
+export interface Role {
+  id: number;
+  roleName: string;
+}
+
+
 @Component({
   selector: 'app-admin-board',
 
@@ -16,10 +23,12 @@ import {Router} from "@angular/router";
 
 export class AdminBoardComponent  implements  OnInit{
   users!: User[];
+  userID!:number;
 
+  userRoles!: Role[];
   ngOnInit(): void {
-
-
+    this.getUsers();
+    //this.getUserRoles(this.userID);
 
   }
 
@@ -27,15 +36,49 @@ export class AdminBoardComponent  implements  OnInit{
     this.usersCrud.getListOfUser().subscribe(data => {
       this.users = data;
     });
+
+   // this.userID = 2; // Initialize userID with a default value
+
   }
+
+
+
 
 
   public getUsers(){
     this.usersCrud.getListOfUser().subscribe(data => {
       this.users = data;
     });
-  }
 
+  }
+//////
+//   getUserRoles(idUser2:number): Role[] {
+//     let roles: Role[] = [];
+//     this.usersCrud.getUserRoles(idUser2).subscribe(
+//
+//       roles => {
+//         this.userRoles = roles;
+//         console.log("role is for user 4 " +  JSON.stringify( roles ))
+//       },
+//       error => {
+//         console.log('Error fetching roles for user', error);
+//       }
+//     );
+//   }
+/////
+  getUserRoles(idUser2: number): Role[] {
+    let roles: Role[] = [];
+    this.usersCrud.getUserRoles(idUser2).subscribe(
+      data => {
+        roles = data;
+        console.log("Roles for user " + idUser2 + ": " + JSON.stringify(data));
+      },
+      error => {
+        console.log('Error fetching roles for user', error);
+      }
+    );
+    return roles;
+  }
 
 
 

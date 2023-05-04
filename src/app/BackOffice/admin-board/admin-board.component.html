@@ -40,7 +40,9 @@
     <th scope="col">Is Active</th>
     <th scope="col"> number of signals </th>
     <th scope="col"> Action </th>
-<!--    <th scope="col"> Role </th>-->
+<!--    <th scope="col"> role </th>-->
+
+    <!--    <th scope="col"> Role </th>-->
   </tr>
   </thead>
   <tbody>
@@ -59,9 +61,56 @@
       <button class="bt btn-danger"   let x="user.idUser" (click)="deleteUserS(user.idUser)" > Delete </button>&nbsp;
       <button class="bt btn-warning" (click)="blockUser(user.idUser)" > Block </button>
     </td>
-  </tr>
+<!--    <td>-->
+<!--      <div *ngFor="let role of getUserRoles(user.idUser)">-->
+<!--        <span>{{role.roleName}}</span>-->
+<!--      </div>-->
+<!--  </tr>-->
   </tbody>
 </table>
+
+
+
+  <footer class="panel-footer">
+    &nbsp;
+
+    <nav aria-label="Page navigation example">
+      Total users 12 : Page 1 of 15]
+
+      <ul class="pagination">
+        <li class="page-item">
+          &nbsp;    <a ><i class="fa fa-step-backward"></i></a>
+          <span><i class="fa fa-step-backward"></i></span>
+        </li>
+
+        <li class="page-item">
+          &nbsp;    <a ><i class="fa fa-backward"></i> </a>
+          <span><i class="fa fa-backward"></i>   </span>
+        </li>
+
+        <li class="page-item">
+
+
+
+          &nbsp;     <span >
+        <a ></a>
+        <span></span>
+</span>
+        </li>
+
+        <li class="page-item">
+          &nbsp; <a > <i class="fa fa-forward"></i></a>
+          <span> <i class="fa fa-forward"></i></span>
+        </li>
+
+        <li class="page-item">
+          &nbsp;   <a ><i class="fa fa-step-forward"></i></a>
+          <span ><i class="fa fa-step-forward"></i></span>
+        </li>
+      </ul>
+    </nav>
+
+  </footer>
 
 </div>
 <!--<app-navbar></app-navbar>-->

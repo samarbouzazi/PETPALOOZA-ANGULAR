@@ -30,5 +30,6 @@ export interface User {
   numberOfSignal: number;
   address:string;
 
+  userRole?: string;
 
 }

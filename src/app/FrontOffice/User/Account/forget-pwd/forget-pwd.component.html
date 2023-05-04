@@ -41,7 +41,7 @@
 </div>
 <br><br>
 
-<form (click)="changePWD(changePWDForm)"   #changePWDForm="ngForm"  #f="ngForm" style="max-width: 500px; margin: 0 auto;">
+<form (ngSubmit)="changePWD(changePWDForm)"   #changePWDForm="ngForm"  #f="ngForm" style="max-width: 500px; margin: 0 auto;">
   <input type="hidden" name="token"  ng-hide="token" #T="ngModel"   ngModel />
   <div class="border border-secondary rounded p-3">
     <div>

@@ -10,18 +10,15 @@ import Swal from "sweetalert2";
 })
 export class Test99Component  implements OnInit {
   email: any;
-
   constructor(private authService: AuthService, private router: Router, private activeRoute: ActivatedRoute) {
   }
-
   ngOnInit(): void {
     this.email = this.activeRoute.snapshot.queryParamMap.get('email');
-console.log("\n   \n   the email is "+  this.email);
-
+      console.log("\n   \n   the email is "+  this.email);
       console.log("in the method \n ");
       this.authService.AccepteVirficationEmail(this.email).subscribe(
         res => {
-          Swal.fire("You have succusfully activated your account  !! ")
+          Swal.fire("You have successfully activate your account  !! ")
           this.router.navigateByUrl('/login')
         },
         err => {
@@ -30,7 +27,4 @@ console.log("\n   \n   the email is "+  this.email);
       );
     }
 }
-
-
-
 //  this.email = this.activeRoute.snapshot.paramMap.get('email');

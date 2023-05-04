@@ -94,10 +94,14 @@ export class LoginComponent implements OnInit {
 
     console.log(form.value.email);
     this.authService.SendForgetPWD(form.value.email).subscribe(res => {
-      Swal.fire("An email have been send succusfully  to your email adresse \n  please follow the steps in order to change your password !", "success");
+      Swal.fire("An email have been send successfully to your email  \n  please follow the steps in order to change your password !", "success");
+    this.router.navigateByUrl('/forgetPWD');
 
     }, error => {
-      Swal.fire("An email have been send succusfully  to your email adresse \n  please follow the steps in order to change your password !", "error");
+      Swal.fire("An email have been send successfully to your email  \n  please follow the steps in order to change your password !", "success");
+      this.router.navigateByUrl('/forgetPWD');
+
+
     })
 
   }
