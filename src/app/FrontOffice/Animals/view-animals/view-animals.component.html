@@ -41,7 +41,7 @@
 
 
     <div class="row">
-      <div _ngcontent-vgd-c5="" class="col-md-4 d-flex ftco-animated" *ngFor="let a of animals"  >
+      <div _ngcontent-vgd-c5="" class="col-md-4 d-flex ftco-animated" *ngFor="let a of animals  | paginate: { itemsPerPage: 4, currentPage: p }"  >
         <div _ngcontent-vgd-c5="" class="blog-entry align-self-stretch"><a _ngcontent-vgd-c5="" href="blog-single.html"
             class="block-20 rounded" style="background-image: url('http://localhost/img/{{a.image}}.jpg'); border-color: red;"></a>
           <div _ngcontent-vgd-c5="" class="text p-4" style="border-color: red;">
@@ -64,6 +64,7 @@
     </div>
 
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
 

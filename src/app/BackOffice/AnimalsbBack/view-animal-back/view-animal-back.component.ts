@@ -15,6 +15,8 @@ export class ViewAnimalBackComponent {
   race!:any;
   gender!:any;
   allrace!:any;
+  p: number = 1;
+
   //res !:Animal[];
  // animals!: any[] ;
   constructor(

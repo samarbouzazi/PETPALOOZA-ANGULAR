@@ -31,6 +31,7 @@ import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/updat
 import { AddAnimalBackComponent } from './BackOffice/AnimalsbBack/add-animal-back/add-animal-back.component';
 import { ViewAnimalBackComponent } from './BackOffice/AnimalsbBack/view-animal-back/view-animal-back.component';
 import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-animal-back/update-animal-back.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -62,6 +63,7 @@ import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-anim
       AddAnimalBackComponent,
       ViewAnimalBackComponent,
       UpdateAnimalBackComponent,    
+      
 
     ],
 
@@ -69,7 +71,8 @@ import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-anim
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
