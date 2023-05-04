@@ -20,6 +20,7 @@ export class DetailsComponent  implements OnInit{
   test!:any;
 
   animalUser!:any
+//id!: number;
 
   //idUser=localStorage.getItem('id');
 // *ngIf="animal.userAnimal == idUser"  html
@@ -28,6 +29,7 @@ export class DetailsComponent  implements OnInit{
 
 
   ngOnInit(): void {
+   // const id= localStorage.getItem("id");
 
     this.idAnimal=this.router.snapshot.paramMap.get('id');
 

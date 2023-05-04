@@ -86,5 +86,12 @@ export class AnimalService {
 
   }
 
+
+  exportAnimalsToExcel(): Observable<any> {
+    return this.http.get(this.prefix+"/animals/excel", { responseType: 'blob' });
+  }
+
+
+
 }
 

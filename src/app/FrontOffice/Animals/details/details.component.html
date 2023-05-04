@@ -38,18 +38,18 @@
                         <div class="row">
                             <div class="col-3" style="margin-left: 100px;">
 
-                                <button class="btn btn-danger" type="button" (click)="Addlike()" [disabled]="test"><i class="fa fa-thumbs-up" style="color:antiquewhit;font-size:24px"></i>
+                                <button class="btn btn-primary" type="button" (click)="Addlike()" [disabled]="test"><i class="fa fa-thumbs-up" style="color:antiquewhit;font-size:24px"></i>
                                     {{nblike}} </button>
 
                             </div>
                             <div class="col-3">
 
-                                <button class="btn btn-danger" type="button" (click)="AddDislike()"><i class="fa fa-thumbs-down" style="color:antiquewhit;font-size:24px"></i> {{nbDislike}} </button>
+                                <button class="btn btn-primary" type="button" (click)="AddDislike()"><i class="fa fa-thumbs-down" style="color:antiquewhit;font-size:24px"></i> {{nbDislike}} </button>
 
                             </div>
                             <div class="col-3">
 
-                                <button class="btn btn-danger" type="button"  (click)="addInteressted()"><i class="fa fa-star" style="color:antiquewhit;font-size:24px"></i> {{nbrInteressted}}  </button>
+                                <button class="btn btn-primary"type="button"  (click)="addInteressted()"><i class="fa fa-star" style="color:antiquewhit;font-size:24px"></i> {{nbrInteressted}}  </button>
 
                             </div>
 
@@ -60,11 +60,11 @@
                     <div class="row" style="margin-left: 450px;">
 
                             <div class="col-6">
-                                <button  (click)="DeletAnimal()"   class="btn btn-danger">Delete</button>
+                                <button  (click)="DeletAnimal()"   class="btn btn-primary">Delete</button>
                             </div>
 
                             <div class="col-6">
-                                <button [routerLink]="['/UpdateAnimale',animal.idAnimal]"  class="btn btn-danger">Modify</button>
+                                <button [routerLink]="['/UpdateAnimale',animal.idAnimal]"  class="btn btn-primary">Modify</button>
                             </div>
 
                     </div>

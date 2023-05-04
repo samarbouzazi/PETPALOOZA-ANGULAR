@@ -96,5 +96,19 @@ filtreByGender(){
 
 }
 
+exportAnimalsToExcel() {
+  this.animalService.exportAnimalsToExcel().subscribe(
+    (data: Blob) => {
+      const url = window.URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'animals.xlsx';
+      link.click();
+      window.URL.revokeObjectURL(url);
+    },
+    error => console.error(error)
+  );
+}
+
 
 }
