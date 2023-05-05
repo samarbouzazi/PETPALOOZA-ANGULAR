@@ -1,15 +1,13 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimalService } from 'src/app/services/Animal/animal.service';
 
 @Component({
-  selector: 'app-update-animal',
-  templateUrl: './update-animal.component.html',
-  styleUrls: ['./update-animal.component.css']
+  selector: 'app-update-animal-back',
+  templateUrl: './update-animal-back.component.html',
+  styleUrls: ['./update-animal-back.component.css']
 })
-export class UpdateAnimalComponent  implements OnInit{
-
-
+export class UpdateAnimalBackComponent {
   name!:String;
   birthDate!:any;
   race!:String;
@@ -36,10 +34,9 @@ export class UpdateAnimalComponent  implements OnInit{
     }
 
     this.service.ModifyAnimalById(this.idAnimal,body).subscribe(res=>console.log(res))
-    this.route.navigate(['/animals']).then(() => {
+    this.route.navigate(['/animals/view-animal-back']).then(() => {
       location.reload();
     
     
   });
-}
-}
+  }}

@@ -1,1 +1,68 @@
-<p>update-animal works!</p>
+<app-header></app-header>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+    
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                
+                    <div class="row no-gutters">
+                        <div class="col-md-7">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Modify Animal</h3>
+                                <form #form="ngForm" (ngSubmit)="Sumbit(form)" id="contactForm" class="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Name</label>
+                                                <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Name" [(ngModel)]="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"> 
+                                            <div class="form-group">
+                                                <label class="label" >race</label>
+                                                <input type="email" class="form-control" name="race" id="email" placeholder="race" [(ngModel)]="race">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="label" >gender</label>
+                                            <select name="gender" id="" class="form-control" [(ngModel)]="gender">
+                                              <option >male</option>
+                                              <option >femelle</option>
+                                            </select>  <br>
+                                        </div>
+                                    
+                                        <div class="col-md-6"> 
+                                            <div class="form-group">
+                                                <label class="label" >birth Date</label>
+                                                <input type="date" class="form-control" name="birthDate" id="email" placeholder="Email" [(ngModel)]="birthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="#">description</label>
+                                                <textarea name="description" class="form-control" id="message" cols="30" [(ngModel)]="description" rows="4" placeholder="description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button  type="submit" style="margin-left: 500px;" class="btn btn-primary">Modify</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap w-100 p-5 img" style="background-image: url(images/img.jpg);">
+                  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
