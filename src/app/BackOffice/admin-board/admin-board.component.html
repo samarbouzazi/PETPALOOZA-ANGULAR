@@ -46,7 +46,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users" class="trclass">
+  <tr *ngFor="let user of users | paginate: { itemsPerPage: itempages, currentPage: p }" class="trclass">
     <td>{{user.firstName}} </td>
     <td>{{user.email}}</td>
     <td> {{ user.username}}</td>
@@ -74,41 +74,7 @@
   <footer class="panel-footer">
     &nbsp;
 
-    <nav aria-label="Page navigation example">
-      Total users 12 : Page 1 of 15]
-
-      <ul class="pagination">
-        <li class="page-item">
-          &nbsp;    <a ><i class="fa fa-step-backward"></i></a>
-          <span><i class="fa fa-step-backward"></i></span>
-        </li>
-
-        <li class="page-item">
-          &nbsp;    <a ><i class="fa fa-backward"></i> </a>
-          <span><i class="fa fa-backward"></i>   </span>
-        </li>
-
-        <li class="page-item">
-
-
-
-          &nbsp;     <span >
-        <a ></a>
-        <span></span>
-</span>
-        </li>
-
-        <li class="page-item">
-          &nbsp; <a > <i class="fa fa-forward"></i></a>
-          <span> <i class="fa fa-forward"></i></span>
-        </li>
-
-        <li class="page-item">
-          &nbsp;   <a ><i class="fa fa-step-forward"></i></a>
-          <span ><i class="fa fa-step-forward"></i></span>
-        </li>
-      </ul>
-    </nav>
+    <div>    <pagination-controls (pageChange)="p = $event"></pagination-controls></div>
 
   </footer>
 

@@ -31,6 +31,7 @@ import {DetailsComponent} from "./FrontOffice/Animals/details/details.component"
 import {UpdateAnimalComponent} from "./FrontOffice/Animals/update-animal/update-animal.component";
 import { ForgetPWDComponent } from './FrontOffice/User/Account/forget-pwd/forget-pwd.component';
 import { Test99Component } from './FrontOffice/User/Account/VerifyAccount/test99.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -65,12 +66,13 @@ import { Test99Component } from './FrontOffice/User/Account/VerifyAccount/test99
 
 
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        NgxPaginationModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

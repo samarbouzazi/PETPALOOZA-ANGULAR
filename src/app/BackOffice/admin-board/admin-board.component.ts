@@ -6,7 +6,7 @@ import {UserListComponent} from "../../FrontOffice/User/userCrud/user-list/user-
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
-
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 export interface Role {
   id: number;
@@ -22,6 +22,9 @@ export interface Role {
 })
 
 export class AdminBoardComponent  implements  OnInit{
+  p: number = 1;
+  itempages:number=  8 ;
+  totalPages:any;
   users!: User[];
   userID!:number;
 
@@ -51,6 +54,18 @@ export class AdminBoardComponent  implements  OnInit{
     });
 
   }
+
+  deleteUserS(id: number){
+    if (confirm('Are you sure you want to delete this user?')) {
+
+      this.usersCrud.deleteUser(id).subscribe(data => {
+        console.log(data);
+        this.getUsers();
+      })
+    }
+  }
+
+
 //////
 //   getUserRoles(idUser2:number): Role[] {
 //     let roles: Role[] = [];
@@ -84,13 +99,6 @@ export class AdminBoardComponent  implements  OnInit{
 
 
 
-
-  deleteUserS(id: number){
-    this.usersCrud.deleteUser(id).subscribe( data => {
-      console.log(data);
-      this.getUsers();
-    })
-  }
 
   blockUser(id: number) {
     this.usersCrud.blockUser(id).subscribe(data => {

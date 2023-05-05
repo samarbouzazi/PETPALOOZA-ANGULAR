@@ -20,7 +20,7 @@ export class DetailsComponent  implements OnInit{
   test!:any;
 
   animalUser!:any
-
+//zied hethat  lehna mech fe ngOnInit() we 3aweth il 2 ib this.idUser
   idUser=localStorage.getItem('id');
 // *ngIf="animal.userAnimal == idUser"  html
   constructor(private service : AnimalService , private router:ActivatedRoute, private route: Router){}
@@ -56,11 +56,11 @@ export class DetailsComponent  implements OnInit{
         idAnimal:this.idAnimal
       },
       user:{
-        idUser:2
+        idUser:this.idUser
       },
       liked:true
     }
-    this.service.addLike(body,this.idAnimal,2).subscribe(res =>{
+    this.service.addLike(body,this.idAnimal,this.idUser).subscribe(res =>{
       if(res==null){
         alert("vous avez déja réagie sur ce poste")
       }
@@ -80,7 +80,7 @@ export class DetailsComponent  implements OnInit{
         idAnimal:this.idAnimal
       },
       user:{
-        idUser:2
+        idUser:this.idUser
       },
       liked:false
     }
@@ -97,7 +97,7 @@ export class DetailsComponent  implements OnInit{
   }
   addInteressted(){
 
-    this.service.addInteressted(this.idAnimal,2).subscribe(res=>console.log(res))
+    this.service.addInteressted(this.idAnimal,this.idUser).subscribe(res=>console.log(res))
     window.location.reload()
   }
 
