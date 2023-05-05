@@ -78,6 +78,12 @@ export class UserService {
   }
 
 
+  public getUserID(): any {
+    const id = localStorage.getItem("id");
+   return id;
+  }
+
+
 
 
 

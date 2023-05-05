@@ -16,8 +16,9 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.currentUser = this.userS.getUser();
-
+ //   this.currentUser = this.userS.getUser();
+    this.currentUser = this.userS.getUserID();
+console.log("the is is \n "+ this.currentUser)
     const id = localStorage.getItem("id");
     console.log("The fucking id is \n "+ id);
 

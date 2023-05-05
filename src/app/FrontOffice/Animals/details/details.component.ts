@@ -21,13 +21,14 @@ export class DetailsComponent  implements OnInit{
 
   animalUser!:any
 
-  //idUser=localStorage.getItem('id');
+  idUser=localStorage.getItem('id');
 // *ngIf="animal.userAnimal == idUser"  html
   constructor(private service : AnimalService , private router:ActivatedRoute, private route: Router){}
 
 
 
   ngOnInit(): void {
+    console.log("the id of user is \n "+ this.idUser)
 
     this.idAnimal=this.router.snapshot.paramMap.get('id');
 
@@ -83,7 +84,7 @@ export class DetailsComponent  implements OnInit{
       },
       liked:false
     }
-    this.service.addDisLike(body,this.idAnimal,2).subscribe(res =>{
+    this.service.addDisLike(body,this.idAnimal,this.idUser).subscribe(res =>{
       if(res==null){
         alert("vous avez déja réagie sur ce poste")
       }

@@ -51,7 +51,7 @@ const routes: Routes = [
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
-  { path : "detailsAnimal:id" , component : DetailsComponent },
+  { path : "detailsAnimal/:id" , component : DetailsComponent },
 
 ];
 // =======
