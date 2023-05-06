@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Offre } from 'src/app/Models/offre';
+import { Offre } from 'src/app/models/offre';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class OffreserviceService {
 
   createOffre(fct: Offre): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/addoffre`, fct);
+  }
+  
+  getOffreStat(): Observable<any>{
+    return this.httpClient.get<any>(`${this.baseURL}/statjoboffre`);
   }
 
 
