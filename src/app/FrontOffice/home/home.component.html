@@ -348,71 +348,94 @@
     </div>
   </section>
 
+
+<!-- 
   <section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+      <div class="col-md-7 heading-section text-center ftco-animated">
+        <h2 [routerLink]="['/list-events']">List Events</h2>
+      </div>
+    </div>
+        <div class="row">
+            <div class="col-md-4 ftco-animated" *ngFor="let event of latestEvents">
+          <div class="block-7">
+              <div class="img" style="background-image: url({{event.imageUrl}});"></div>
+            <div class="text-center p-4">
+                <span class="excerpt d-block">{{event.title}}</span>
+                <span class="price"><sup>$</sup> <span class="number">{{event.price}}</span> <sub>/{{event.priceType}}</sub></span>
+                <ul class="pricing-text mb-5">
+                  <li><span class="fa fa-check mr-2"></span>{{event.dogWalks}} Dog Walk</li>
+                  <li><span class="fa fa-check mr-2"></span>{{event.vetVisits}} Vet Visit</li>
+                  <li><span class="fa fa-check mr-2"></span>{{event.petSpas}} Pet Spa</li>
+                  <li><span class="fa fa-check mr-2"></span>Free Supports</li>
+                </ul>
+  
+                <a [routerLink]="['/event-details', event.id]" class="btn btn-primary d-block px-2 py-3">Participer</a>
+                <br>
+                <a (click)="interestedInEvent(event.id)" class="btn btn-primary d-block px-2 py-3">Interesser</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    Event
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animated">
+            <h2>Latest news from our blog</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          
+          
+          <div class="col-md-4 d-flex ftco-animated">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('assets/images/image_3.jpg');">
+              </a>
+              <div class="text p-4">
+                  <div class="meta mb-2">
+                  <div><a href="#">April 07, 2020</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- <section class="ftco-section bg-light">
       <div class="container">
           <div class="row justify-content-center pb-5 mb-3">
         <div class="col-md-7 heading-section text-center ftco-animated">
-          <h2>Affordable Packages</h2>
+          <h2 [routerLink]="['/list-events']" >List Events</h2>
+ 
         </div>
       </div>
-          <div class="row">
-              <div class="col-md-4 ftco-animated">
-            <div class="block-7">
-                <div class="img" style="background-image: url(assets/images/pricing-1.jpg);"></div>
-              <div class="text-center p-4">
-                  <span class="excerpt d-block">Personal</span>
-                  <span class="price"><sup>$</sup> <span class="number">49</span> <sub>/mos</sub></span>
+      <section>
+        <br>
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let event of latestEvents">
+            <div >
+            <img [src]="'http://localhost/img/' + event.image + '.jpg'" class="img-thumbnail">
               
-                  <ul class="pricing-text mb-5">
-                    <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-                    <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-                  </ul>
-
-                  <a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animated">
-            <div class="block-7">
-                <div class="img" style="background-image: url(assets/images/pricing-2.jpg);"></div>
-              <div class="text-center p-4">
-                  <span class="excerpt d-block">Business</span>
-                  <span class="price"><sup>$</sup> <span class="number">79</span> <sub>/mos</sub></span>
-                  
-                  <ul class="pricing-text mb-5">
-                    <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-                    <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-                  </ul>
-
-                  <a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animated">
-            <div class="block-7">
-                <div class="img" style="background-image: url(assets/images/pricing-3.jpg);"></div>
-              <div class="text-center p-4">
-                  <span class="excerpt d-block">Ultimate</span>
-                  <span class="price"><sup>$</sup> <span class="number">109</span> <sub>/mos</sub></span>
-                  
-                  <ul class="pricing-text mb-5">
-                    <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-                    <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-                    <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-                  </ul>
-
-                  <a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+              <div class="card-body">
+                <h5 class="card-title">{{ event.titre }}</h5>
+                <p class="card-text">{{ event.description }}</p>
+                
+                <a href="#" class="btn btn-primary">Afficher</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-  </section>
+  </section> -->
       
       <section class="ftco-section">
           <div class="container">
