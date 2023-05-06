@@ -140,7 +140,7 @@
         </thead>
         <tbody>
 
-            <tr  *ngFor = "let item of animal">
+            <tr  *ngFor = "let item of animal | paginate: { itemsPerPage: 4, currentPage: p }" >
                            
                 <td>{{ item.nameAnimal }}</td>
 <td class="text-center">{{ item.race }}</td>
@@ -159,6 +159,7 @@
     
   </table>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </body>
 

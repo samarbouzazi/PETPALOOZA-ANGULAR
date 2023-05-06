@@ -22,6 +22,7 @@ import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/updat
 import { AddAnimalBackComponent } from './BackOffice/AnimalsbBack/add-animal-back/add-animal-back.component';
 import { ViewAnimalBackComponent } from './BackOffice/AnimalsbBack/view-animal-back/view-animal-back.component';
 import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-animal-back/update-animal-back.component';
+
 import { ListEventsComponent } from './FrontOffice/Events/list-events/list-events.component';
 import { DetailEventComponent } from './FrontOffice/Events/detail-event/detail-event.component';
 import { CreateEventComponent } from './BackOffice/EventBack/create-event/create-event.component';
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
 
 
 
@@ -61,9 +63,13 @@ import { AppRoutingModule } from './app-routing.module';
       UpdateAnimalComponent,
       AddAnimalBackComponent,
       ViewAnimalBackComponent,
+
+      UpdateAnimalBackComponent,    
+
       UpdateAnimalBackComponent,
       ListEventsComponent,
       DetailEventComponent,
+
 
     ],
   imports: [
@@ -71,7 +77,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule,
+
+    NgxPaginationModule
+
     NgxQRCodeModule,
 
   ],
