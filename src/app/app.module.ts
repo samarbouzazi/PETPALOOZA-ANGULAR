@@ -30,10 +30,15 @@ import { ListEventComponent } from './BackOffice/EventBack/list-event/list-event
 import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update-event.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { NgxPaginationModule } from 'ngx-pagination';
+
+import { RdvListComponent } from './FrontOffice/rdv/rdv-list/rdv-list.component';
+import { ListRdvComponent } from './BackOffice/rdvBack/list-rdv/list-rdv.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
 
 
 
@@ -63,9 +68,9 @@ import { AppRoutingModule } from './app-routing.module';
       UpdateAnimalComponent,
       AddAnimalBackComponent,
       ViewAnimalBackComponent,
-
-      UpdateAnimalBackComponent,    
-
+      RdvListComponent,
+      ListRdvComponent,    
+      
       UpdateAnimalBackComponent,
       ListEventsComponent,
       DetailEventComponent,

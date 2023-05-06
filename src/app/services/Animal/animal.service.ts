@@ -92,6 +92,18 @@ export class AnimalService {
   }
 
 
+  // getAnimalRaceStats() {
+  //   return this.http.get<any[]>('/stats/race');
+  // }
+
+  getAnimalRaceStats(): Observable<Object[]> {
+    return this.http.get<Object[]>(`${this.prefix}/stats/race`);
+  }
+
+  // getAnimalGenderStats(): Observable<any[]> {
+  //   return this.http.get<any[]>('/stats/gender');
+  // }
+
 
 }
 

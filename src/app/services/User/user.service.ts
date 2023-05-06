@@ -25,4 +25,19 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
+
+
+  public getUser(): any {
+    const id = localStorage.getItem("id");
+    const username= localStorage.getItem("username");
+    const email= localStorage.getItem("email");
+    const token = localStorage.getItem("accessToken");
+    console.log("token 0"+ token);
+    console.log("\n  id is "+ id);
+    console.log("\n unsername   "+ username);
+    console.log("\n email  "+ email);
+    return { id, username, email };
+  
+  
+  }
 }
