@@ -32,6 +32,8 @@ import { AddAnimalBackComponent } from './BackOffice/AnimalsbBack/add-animal-bac
 import { ViewAnimalBackComponent } from './BackOffice/AnimalsbBack/view-animal-back/view-animal-back.component';
 import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-animal-back/update-animal-back.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RdvListComponent } from './FrontOffice/rdv/rdv-list/rdv-list.component';
+import { ListRdvComponent } from './BackOffice/rdvBack/list-rdv/list-rdv.component';
 
 
 
@@ -62,7 +64,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
       UpdateAnimalComponent,
       AddAnimalBackComponent,
       ViewAnimalBackComponent,
-      UpdateAnimalBackComponent,    
+      UpdateAnimalBackComponent,
+      RdvListComponent,
+      ListRdvComponent,    
       
 
     ],
