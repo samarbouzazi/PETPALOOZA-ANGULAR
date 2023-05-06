@@ -10,6 +10,8 @@ export class AccountComponent implements OnInit {
   currentUser: any;
   id!:number;
 
+
+  username:any;
   user: any;
 
   constructor(private userS: UserService) { }
@@ -18,18 +20,14 @@ export class AccountComponent implements OnInit {
 
  //   this.currentUser = this.userS.getUser();
     this.currentUser = this.userS.getUserID();
-console.log("the is is \n "+ this.currentUser)
+    console.log("the is is \n "+ this.currentUser)
     const id = localStorage.getItem("id");
-    console.log("The fucking id is \n "+ id);
+    const username = localStorage.getItem("username");
 
+    console.log("The fucking id is \n "+ id);
+    console.log("The username is \n "+ username);
     console.log(" \n the current user ishhhhhhhhhh "+ this.currentUser);
-// =======
-//     this.currentUser = this.storageService.getUser();
-//
-//     this.id=this.currentUser.id;
-//     console.log("the id of the current user is "+this.id);
-//
-// >>>>>>> main
+
   }
 
 

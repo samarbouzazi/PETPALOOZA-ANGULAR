@@ -14,7 +14,11 @@ export class NavbarComponent {private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
-  username?: string;
+  //username?: string;
+
+  currentUser: any;
+  username!:string;
+
 
   eventBusSub?: Subscription;
 
@@ -25,6 +29,10 @@ export class NavbarComponent {private roles: string[] = [];
   ) {}
 
   ngOnInit(): void {
+
+
+    const username = localStorage.getItem("username");
+console.log("the username is \n "+ username);
     // this.isLoggedIn = this.storageService.isLoggedIn();
     //
     // if (this.isLoggedIn) {
@@ -40,6 +48,11 @@ export class NavbarComponent {private roles: string[] = [];
     // this.eventBusSub = this.eventBuService.on('logout', () => {
     //   this.logout();
     // });
+  }
+
+
+  getUsername(){
+    return this.username;
   }
 
   // logout(): void {
