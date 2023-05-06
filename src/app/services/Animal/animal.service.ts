@@ -86,5 +86,24 @@ export class AnimalService {
 
   }
 
+
+  exportAnimalsToExcel(): Observable<any> {
+    return this.http.get(this.prefix+"/animals/excel", { responseType: 'blob' });
+  }
+
+
+  // getAnimalRaceStats() {
+  //   return this.http.get<any[]>('/stats/race');
+  // }
+
+  getAnimalRaceStats(): Observable<Object[]> {
+    return this.http.get<Object[]>(`${this.prefix}/stats/race`);
+  }
+
+  // getAnimalGenderStats(): Observable<any[]> {
+  //   return this.http.get<any[]>('/stats/gender');
+  // }
+
+
 }
 
