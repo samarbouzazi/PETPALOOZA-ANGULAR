@@ -21,6 +21,7 @@ export class ListEventsComponent implements OnInit {
 
   getAllAnimals(){
     this.eventService.getEventsList().subscribe(res => {
+      
       this.events= res
       console.log(res)
     })

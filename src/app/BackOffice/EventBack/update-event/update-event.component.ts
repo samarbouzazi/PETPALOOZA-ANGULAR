@@ -40,6 +40,7 @@ export class UpdateEventComponent implements OnInit {
 
   goToEventList(){
     this.router.navigate(['/events']);
+    
   }
   types : string[] = ['DON', 'VACCINATION','SENSIBILISATION'];
 }
