@@ -93,7 +93,7 @@ export class UserService {
     // localStorage.removeItem('token');
 
     localStorage.clear();
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('/login');
   }
 
 

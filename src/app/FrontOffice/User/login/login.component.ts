@@ -14,7 +14,6 @@ const USER_KEY = 'bara123456789';
 
 interface bara {
   accessToken: string;
-  // other properties here
 }
 @Component({
   selector: 'app-login',
@@ -33,6 +32,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private API_URL = 'http://localhost:8888';
 
+  showPassword: boolean = false;
 
 
   ///////////////////
@@ -47,10 +47,7 @@ export class LoginComponent implements OnInit {
   constructor( private userS: UserService,  private authService: AuthService,  private router:Router) { }
 
   ngOnInit(): void {
-    // if (this.storageService.isLoggedIn()) {
-    //   this.isLoggedIn = true;
-    //   this.roles = this.storageService.getUser().roles;
-    // }
+
   }
 
 
@@ -89,22 +86,49 @@ export class LoginComponent implements OnInit {
 
 
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+
+
 
   sendAResetPwdLink(form: NgForm) {
-
     console.log(form.value.email);
-    this.authService.SendForgetPWD(form.value.email).subscribe(res => {
-      Swal.fire("An email have been send successfully to your email  \n  please follow the steps in order to change your password !", "success");
-    this.router.navigateByUrl('/forgetPWD');
-
-    }, error => {
-      Swal.fire("An email have been send successfully to your email  \n  please follow the steps in order to change your password !", "success");
-      this.router.navigateByUrl('/forgetPWD');
-
-
-    })
-
+    this.authService.SendForgetPWD(form.value.email).subscribe(
+      (res) => {
+        Swal.fire({
+          title: 'An email has been sent successfully to your email',
+          text: 'Please follow the steps in order to change your password!',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'OK',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'https://mail.google.com/mail/u/0/#inbox';
+          }
+        });
+      },
+      (error) => {
+        Swal.fire({
+          title: 'An email has been sent successfully to your email',
+          text: 'Please follow the steps in order to change your password!',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'OK',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'https://mail.google.com/mail/u/0/#inbox';
+          }
+        });
+      }
+    );
   }
+
 
 
 

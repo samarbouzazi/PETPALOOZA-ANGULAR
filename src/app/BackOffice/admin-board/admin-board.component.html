@@ -1,35 +1,16 @@
 
-
-
-
-<!--<div class="card my-5" style="background-color: whitesmoke">-->
-<!--  <div class="card-body">-->
-<!--    <table class="table table-bordered table-striped">-->
-<!--      <thead class="thead-dark">-->
-<!--      <tr>-->
-<!--        <th scope="col">#</th>-->
-<!--        <th scope="col">Name</th>-->
-<!--        <th scope="col">Email</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr *ngFor="let user of users">-->
-<!--        <td>{{ user.idUser }}</td>-->
-<!--        <td>{{ user.username }}</td>-->
-<!--        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--  </div>-->
-<!--</div>-->
 <app-navbar></app-navbar>
 
 <br>
 <br>
 <div class="container">
-<table class="table">
+
+
+  <table class="table">
   <thead class="thead-dark">
+
   <tr>
+
     <th scope="col">Full Name</th>
     <th scope="col">Email</th>
     <th scope="col">Username</th>
@@ -39,15 +20,16 @@
 <!--    <th scope="col">Inscription Date</th>-->
     <th scope="col">Is Active</th>
     <th scope="col"> number of signals </th>
-    <th scope="col"> Action </th>
+    <th scope="col"> Block </th>
 <!--    <th scope="col"> role </th>-->
 
     <!--    <th scope="col"> Role </th>-->
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users | paginate: { itemsPerPage: itempages, currentPage: p }" class="trclass">
-    <td>{{user.firstName}} </td>
+  <tr *ngFor="let user of users | paginate: { itemsPerPage: itempages, currentPage: p }"
+      class="trclass"
+      (click)="selectUser(user)">    <td>{{user.firstName}} </td>
     <td>{{user.email}}</td>
     <td> {{ user.username}}</td>
     <td> {{ user.occupation}}</td>
@@ -58,7 +40,7 @@
     <td>{{user.numberOfSignal}}</td>
 <!--    <td>{{user.role}}</td>-->
     <td>
-      <button class="bt btn-danger"   let x="user.idUser" (click)="deleteUserS(user.idUser)" > Delete </button>&nbsp;
+<!--      <button class="bt btn-danger"   let x="user.idUser" (click)="deleteUserS(user.idUser)" > Delete </button>&nbsp;-->
       <button class="bt btn-warning" (click)="blockUser(user.idUser)" > Block </button>
     </td>
 <!--    <td>-->
@@ -72,13 +54,30 @@
 
 
   <footer class="panel-footer">
-    &nbsp;
+    &nbsp; <button style="margin-left: 1500px"   class="btn btn-danger " (click)="deleteSelectedUser()" [disabled]="!selectedUser">
+    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+  </button>
 
-    <div>    <pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+    <div>    <pagination-controls (pageChange)="p = $event">
+
+
+
+    </pagination-controls>
+
+
+
+    </div>
+
 
   </footer>
 
 </div>
+
+<!--<button class="btn btn-danger"-->
+<!--        (click)="deleteSelectedUser()"-->
+<!--        [disabled]="!selectedUser">-->
+<!--  Delete Selected User-->
+<!--</button>-->
 <!--<app-navbar></app-navbar>-->
 
 

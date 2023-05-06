@@ -61,7 +61,10 @@ export class NavbarComponent {private roles: string[] = [];
 
 
 
-    this.userS.signout()  }
+    this.userS.signout()
+
+
+  }
   // doSignout() {
   //   this.authService.signout();
   //   this.router.navigateByUrl("login");

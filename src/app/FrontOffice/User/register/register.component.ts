@@ -196,29 +196,7 @@ export class RegisterComponent  implements OnInit {
   success: string = '';
 
   ngOnInit(): void {
-  //  this.MyEmail=this.activeRoute.snapshot.paramMap.get('email');
-
-    // if( this.authService.SendVificationEmail("mahmoud.timoumi@esprit.tn")){
-    //   alert("okkkk");
-    // }else {
-    //   alert("nnnnnnnnnnoooooo");
-    // }
-
   }
-
-
-
-  // DoActivateAccount() {
-  //   this.authService.AccepteVirficationEmail(this.email).subscribe(
-  //     res => {
-  //       console.log('okkk');
-  //       alert('hellllll');
-  //     },
-  //     err => {
-  //       alert('some error have existed');
-  //     }
-  //   );
-  // }
 
 
   onChangeCategory(event: any, role: any) {
@@ -236,18 +214,16 @@ export class RegisterComponent  implements OnInit {
           this.success = result;
           console.log("the email is " + this.email);
           var emailss = this.email;
-       //   this.authService.SendVificationEmail(this.email).subscribe(res=>{}, error1 => {alert("an error has occured !!")})
-
-        //   Swal.fire({
-        //     title: 'Success!',
-        //     html: `You have successfully joined our community. Please verify your email address to activate your account: <a href="https://mail.google.com/mail/u/0/#inbox?compose=new&to=${this.email}">${this.email}</a>`,
-        //     icon: 'success',
-        //     showConfirmButton: true
-        //   }
-        //   );
-        // },
           this.authService.SendVificationEmail(this.email).subscribe(
-            sec=>{alert("email have been sent !!")
+            sec=>{
+              Swal.fire({
+                title: 'Welcome To our community , only one step more ',
+                text: `please check your email inbox to activate your account .`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+              });
+
+            //  alert("email have been sent !!")
               this.router.navigate(['/login'])
             },
 
@@ -294,98 +270,5 @@ export class RegisterComponent  implements OnInit {
   }
 
 
-
-  // username:string='';
-  // password:string='';
-  // firstName:string='';
-  // lastName:string='';
-  // occupation:string='';
-  // birthDate=new Date();
-  // phone:string='';
-  //
-
-  //
-  //
-  // // user: User[] = [];
-  // constructor(private  authService: AuthServiceService, private route: ActivatedRoute, private router: Router) {
-  // }
-  // ngOnInit(): void {
-  // }
-  //
-  // doRegister(){
-  //   // let user:User = {
-  //   //   firstName:null,
-  //   //   lastName: null!,
-  //   //   passowrd: 0,
-  //   //   username: null
-  //   // };
-  //   //
-  //   if(this.username !== '' && this.username !== null && this.password !== '' && this.password !== null && this.firstName!==null) {
-  //   const userA:User  = { username: this.username, passowrd: this.password, firstName: this.firstName /*, lastName:this.lastName, occupation:this.occupation, phone:this.phone, birthDate:this.birthDate*/};
-  //
-  //
-  //   this.authService.signup(userA).subscribe((result)=> {
-  //     //console.log(result);
-  //     //this.success = 'Signup successful';
-  //     console.log(result+ "\n");
-  //     // this.success = result;
-  //     console.log("kkkkkk"+ result+ "\n");
-  //
-  //     // this.user.push(result);
-  //
-  //   }, (err) => {
-  //     //console.log(err);
-  //     alert('Something went wrong during signup');
-  //   });
-  // }else {
-  //   alert("nulll value")}
-  // }
-
-
-  //
-  //
-  // DoActivateAccount(){
-  //   this.authService.AccepteVirficationEmail(this.email).subscribe(res=>{
-  //
-  //     console.log("okkk ");
-  //     alert("hellllll");
-  //     },
-  //     err=>{alert("some error have existed")})
-  //
-  // }
-  //
-
-
-
-
-
-  // DoActivateAccount() {
-  //   this.activeRoute.params.subscribe(params => {
-  //     const email = params['email'];
-  //     this.authService.AccepteVirficationEmail(email).subscribe(
-  //       res => {
-  //         console.log('okkk');
-  //         alert('hellllll');
-  //       },
-  //       err => {
-  //         alert('some error have existed');
-  //       }
-  //     );
-  //   });
-  // }
-
-
-
-  // DoActivateAccount() {
-  //   this.authService.AccepteVirficationEmail(this.email).subscribe(
-  //     res => {
-  //       console.log('okkk');
-  //       alert('hellllll');
-  //     },
-  //     err => {
-  //       alert('some error have existed');
-  //     }
-  //   );
-  // }
 
 }

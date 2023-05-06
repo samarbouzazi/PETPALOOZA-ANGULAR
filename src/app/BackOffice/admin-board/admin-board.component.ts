@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
-
+import Swal from 'sweetalert2';
 export interface Role {
   id: number;
   roleName: string;
@@ -28,6 +28,10 @@ export class AdminBoardComponent  implements  OnInit{
   users!: User[];
   userID!:number;
 
+
+
+  selectedUser: User | null = null;
+
   userRoles!: Role[];
   ngOnInit(): void {
     this.getUsers();
@@ -47,7 +51,6 @@ export class AdminBoardComponent  implements  OnInit{
 
 
 
-
   public getUsers(){
     this.usersCrud.getListOfUser().subscribe(data => {
       this.users = data;
@@ -56,14 +59,50 @@ export class AdminBoardComponent  implements  OnInit{
   }
 
   deleteUserS(id: number){
-    if (confirm('Are you sure you want to delete this user?')) {
 
       this.usersCrud.deleteUser(id).subscribe(data => {
         console.log(data);
         this.getUsers();
       })
+
+  }
+
+
+  selectUser(user: User) {
+    this.selectedUser = user;
+  }
+  // deleteSelectedUser() {
+  //   if (this.selectedUser) {
+  //     if (confirm('Are you sure you want to delete this user?')) {
+  //       this.deleteUserS(this.selectedUser.idUser);
+  //       this.selectedUser = null;
+  //     }
+  //   }
+  // }
+
+
+  deleteSelectedUser() {
+    if (this.selectedUser) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete user!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteUserS(this.selectedUser?.idUser!);
+          this.selectedUser = null;
+          Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+        }
+      });
     }
   }
+
+
+
 
 
 //////
@@ -100,9 +139,34 @@ export class AdminBoardComponent  implements  OnInit{
 
 
 
+
+
   blockUser(id: number) {
-    this.usersCrud.blockUser(id).subscribe(data => {
-      console.log(data);
-      this.getUsers();
-    })
-  }}
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, block user!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usersCrud.blockUser(id).subscribe((data) => {
+          console.log(data);
+          this.getUsers();
+        });
+        Swal.fire('Blocked!', 'The user has been blocked.', 'success');
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
+}
