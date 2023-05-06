@@ -14,7 +14,7 @@
     
     
     
-        <form (ngSubmit)="onSubmit()">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="input-group mb-3">
                 <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Title
                     
@@ -61,6 +61,14 @@
         </div>
     
     
+
+        <div class="input-group mb-3">
+            <label for="image" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Image</label>
+            <div class="custom-file col-xl-8 col-lg-8 col-md-8 col-sm-7">
+              <input type="file" class="custom-file-input" id="image" name="image" (change)="onFileInput($event)">
+              <label class="custom-file-label" for="image">Choose file</label>
+            </div>
+          </div>
     
     
             <div class="input-group mb-3">

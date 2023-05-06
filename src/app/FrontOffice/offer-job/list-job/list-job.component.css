@@ -87,3 +87,11 @@ app-header {
     vertical-align: top;
     margin-right: 15px;
   }
+
+  .img-thumbnail {
+    width: 110px; /* ajustez la largeur en fonction de vos besoins */
+    height: 110px; /* ajustez la hauteur en fonction de vos besoins */
+    object-fit: cover; /* afficher l'image entière en couvrant l'espace disponible */
+    border-radius: 50%; /* transformer l'image en cercle */
+  }
+  

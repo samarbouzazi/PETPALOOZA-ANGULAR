@@ -2,11 +2,17 @@
 
 </app-header>
 
+
+
+<a [routerLink]="['/add-jobOffre']" class="btn btn-small btn-primary">Ajouter un nouveau Offre</a>
+
+<br><br><br><br>
+
 <div class="row">
-    <div *ngFor="let fct of offres" class="col-md-4 d-flex align-self-stretch px-4 ftco-animated">
+    <div *ngFor="let fct of ordredoffre" class="col-md-4 d-flex align-self-stretch px-4 ftco-animated">
       <div class="services active text-center">
         <div class="icon d-flex align-items-center justify-content-center">
-          <span class="flaticon-blind"></span>
+          <img [src]="'http://localhost/img/' + fct.image + '.jpg'" class="img-thumbnail">
         </div>
         <div class="media-body">
           <h3 class="heading">{{fct.title}}</h3>
@@ -15,7 +21,7 @@
           <p>{{fct.beginnigDate}}</p>
           <p>{{fct.endDate}}</p>
           <p>{{fct.localisation}}</p>
-          <a [routerLink]="['/single-jobOffre']" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+          <a [routerLink]="['/single-jobOffre',fct.idJob]" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
         </div>
       </div>      
     </div>

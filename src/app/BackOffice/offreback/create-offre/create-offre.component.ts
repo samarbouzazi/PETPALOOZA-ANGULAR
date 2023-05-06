@@ -10,9 +10,14 @@ import { OffreserviceService } from 'src/app/services/Offre/offreservice.service
 })
 export class CreateOffreComponent {
 
-  offre: Offre = new Offre();
+  
+  
 
-  constructor(private OffreService: OffreserviceService,
+  imagePath!: File;
+  previewImage:any;
+
+
+  constructor(private offreService: OffreserviceService,
     private router: Router ) { }
 
   ngOnInit(): void {
@@ -20,12 +25,16 @@ export class CreateOffreComponent {
 
   offretype : string[] = ['OFFRE', 'DEMANDE'];
 
-  saveEvent(){
-    this.OffreService.createOffre(this.offre).subscribe( data =>{
-      console.log(data);
-      this.goToOffreList();
+  offre: Offre = new Offre();
+
+  saveOffre(){
+    const formData = new FormData();
+    formData.append('offre', JSON.stringify(this.offre));
+    formData.append('image', this.imagePath);
     
-    },
+    this.offreService.createOffre(this.offre).subscribe( data =>{
+    console.log(data);
+    this.goToOffreList();},
     error => console.log(error));
   }
 
@@ -33,9 +42,19 @@ export class CreateOffreComponent {
     this.router.navigate(['/offres']);
   }
   
-  onSubmit(){
-    console.log(this.offre);
-    this.saveEvent();
+  onFileInput(offre:any) {
+    if (offre.target.files.length > 0) {
+      this.previewImage = offre.target.files[0];
+      console.log(this.previewImage)
+    }
   }
+onSubmit(form:any){
 
+  const image = this.previewImage;
+
+  this.offreService.createOffreimage(form.value,image).subscribe(res=>console.log(res))
+  this.router.navigate(['/events']).then(() => {
+  //  location.reload();
+  });
+}
 }

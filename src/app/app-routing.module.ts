@@ -54,7 +54,8 @@ const routes: Routes = [
   { path : "add-jobOffre" , component : AddJobComponent },
   { path : "list-jobOffre" , component : ListJobComponent },
   { path : "update-jobOffre" , component : UpdateJobComponent },
-  { path : "single-jobOffre" , component : SingleJobComponent },
+  { path : "single-jobOffre/:id" , component : SingleJobComponent },
+ 
 
 
 
