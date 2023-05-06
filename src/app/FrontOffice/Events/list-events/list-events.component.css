@@ -1,0 +1,17 @@
+
+
+  .row {
+    justify-content: center;
+  }
+  
+  .img-thumbnail {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+
+  

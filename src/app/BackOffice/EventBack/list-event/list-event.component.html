@@ -1,53 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<app-navbar></app-navbar>
-<br>
-<body>
-
-<div class="container">
-    <div >
-        <a [routerLink]="['/create-event']" class="btn btn-small btn-primary">Add New Event</a>
-    </div>  
-    <br>     
-  <table class="table table-success table-striped">
-    <thead>
-        <tr class="tm-bg-gray">
-                         
-            <th scope="col" class="text-center">Title</th>
-            <th scope="col" class="text-center">Description</th>
-            <th scope="col" class="text-center">type</th>
-            <th scope="col"class="text-center">max participants</th>
-            <th scope="col"class="text-center">location</th>
-            <th scope="col"class="text-center">date debut</th>
-            <th scope="col"class="text-center">date fin</th>
-            <th scope="col">Actions</th>
-           
-        </thead>
-        <tbody>
-
-            <tr  *ngFor = "let fct of event">
-                           
-                <td>{{ fct.titre }}</td>
-<td class="text-center">{{ fct.description }}</td>
-<td class="text-center">{{ fct.type }}</td>
-<td class="text-center">{{ fct.maxParticipants }}</td>
-<td class="text-center">{{ fct.location }}</td>
-<td class="text-center">{{ fct.dateDebut }}</td>
-<td class="text-center">{{ fct.dateFin }}</td>
-                 
+  <app-navbar></app-navbar>
+  <br />
+  <body>
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <a [routerLink]="['/create-event']" class="btn btn-small btn-primary">Add New Event</a>
+            <a (click)="exportPdf()" class="btn btn-small btn-primary">Télécharger le PDF</a>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" [(ngModel)]="searchQuery.titre" class="form-control" placeholder="Title">
+              </div>
               
-<td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "deleteEvent(fct.numEvent)"></i>
-    <br>
-    <i class="fas fa-edit tm-edit-icon" (click)= "updateEvent(fct.numEvent)"></i>
-  
-  </td>
-              </tr>
-            </tbody>     
+              <div class="col-md-4">
+                <input type="text" [(ngModel)]="searchQuery.location" class="form-control" placeholder="Location">
+              </div>
+              
+              <div class="col-md-4">
+                <button class="btn btn-primary" (click)="search()">Search</button>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+        
+        
     
-  </table>
-</div>
+        <br /><br />
+        <table class="table table-success table-striped">
+          <thead>
+            <tr class="tm-bg-gray">
+              <th (click)="sort('titre')">Titre<i *ngIf="key === 'titre'" class="fa fa-sort float-right"></i></th>
+              <th (click)="sort('type')">Type<i *ngIf="key === 'type'" class="fa fa-sort float-right"></i></th>
+              <th (click)="sort('location')">Location<i *ngIf="key === 'location'" class="fa fa-sort float-right"></i></th>
+              
+              <th  (click)="sort2('description')" >Description <i *ngIf="key === 'description'"> </i></th>
+              
+              <th (click)="sort2('maxParticipants')">Max Participants <i *ngIf="key === 'maxParticipants'"> </i> </th>
+              
+              <th (click)="sort2('dateDebut')">Date Debut <i *ngIf="key === 'dateDebut'"> </i> </th>
+              <th (click)="sort2('dateFin')">Date Fin <i *ngIf="key === 'dateFin'"> </i> </th>
+              <th scope="col" class="text-center">Image</th>
+              <th scope="col" class="text-center">Qr Code</th>
 
-</body>
-
-<app-footer-back-end></app-footer-back-end>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fct of event | paginate: { itemsPerPage: pageSize, currentPage: currentPage }" >
+              <td>{{ fct.titre }}</td>
+              <td class="text-center">{{ fct.type }}</td>
+              <td class="text-center">{{ fct.location }}</td>
+              <td class="text-center">{{ fct.description }}</td>
+              
+              <td class="text-center">{{ fct.maxParticipants }}</td>
+              
+              <td class="text-center">{{ fct.dateDebut }}</td>
+              <td class="text-center">{{ fct.dateFin }}</td>
+              <td><img [src]="'http://localhost/img/' + fct.image + '.jpg'" class="img-thumbnail"></td>
+              
+               <td class="text-center" >
+                                            <ngx-qrcode 
+                                               
+                                              [value]="' ==== Event Info: === \n * tittre: ' +fct.titre + '\n * Date Debut: ' + fct.dateDebut + '\n * Date Fin: ' + fct.dateFin + '\n * Description : ' + fct.description + '\n * Localisation : ' + fct.location"  
+                                              
+                                              [width]="100">
+                                            </ngx-qrcode>                                          
+                                     
+              <td class="text-center">
+                <i
+                  class="fas fa-trash-alt tm-trash-icon"
+                  (click)="deleteEvent(fct.numEvent)"
+                ></i>
+                <br />
+                <i
+                  class="fas fa-edit tm-edit-icon"
+                  (click)="updateEvent(fct.numEvent)"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+      </div>
+    </div>
+  </body>
+  <app-footer-back-end></app-footer-back-end>
 </html>
