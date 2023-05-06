@@ -165,7 +165,6 @@ export interface Register {
   birthDate :Date;
 
 
-
  }
 @Component({
   selector: 'app-register',
@@ -175,6 +174,8 @@ export interface Register {
 export class RegisterComponent  implements OnInit {
   constructor(private authService: AuthService, private router: Router, private activeRoute: ActivatedRoute) {
   }
+  retypePassword:string='';
+
 
   error: string = '';
   username: string = '';
