@@ -16,7 +16,13 @@ export class ViewAnimalBackComponent {
   gender!:any;
   allrace!:any;
   p: number = 1;
-
+  
+  // animalRaceStats!: any[];
+  // labels: string[] = [];
+  // data: number[] = [];
+  // chart!: any;
+  // animalRaceChart!: Chart;
+  
   //res !:Animal[];
  // animals!: any[] ;
   constructor(
@@ -111,6 +117,27 @@ exportAnimalsToExcel() {
     error => console.error(error)
   );
 }
+
+// getAnimalRaceStats(){
+//   this.animalService.getAnimalRaceStats().subscribe(data => {
+//     this.animalRaceStats = data;
+//   });}
+
+// getAnimalRaceStats() {
+//   this.animalService.getAnimalRaceStats().subscribe(
+//     results => this.animalRaceStats = results,
+//     error => console.error(error)
+//   );
+// }
+
+// getAnimalRaceStats() {
+//   this.getAnimal();
+//   this.animalService.getAllRace().subscribe(res=>{this.allrace=res});
+//   this.animalService.getAnimalRaceStats().subscribe((data: any[]) => {
+//     this.animalRaceStats = data;
+//     console.log(data);
+//   });
+
 
 
 }
