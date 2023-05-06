@@ -61,6 +61,7 @@ export class CreateEventComponent implements OnInit {
   }
   goToEventist(){
     this.router.navigateByUrl('/events');
+    
   }
   
   Submit(){
@@ -74,6 +75,7 @@ export class CreateEventComponent implements OnInit {
     if (event.target.files.length > 0) {
       this.previewImage = event.target.files[0];
       console.log(this.previewImage)
+      
     }
   }
   onSubmit(form:any){
@@ -82,7 +84,7 @@ export class CreateEventComponent implements OnInit {
   
     this.EventService.addEvent(form.value,image).subscribe(res=>console.log(res))
     this.router.navigate(['/events']).then(() => {
-    //  location.reload();
+      window.location.reload()
     });
   
   

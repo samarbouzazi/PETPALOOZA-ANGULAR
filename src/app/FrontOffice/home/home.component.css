@@ -2,3 +2,10 @@
     max-width: 500px;
     max-height: 500px;
   } 
+
+  :host ::ng-deep .p-dialog .product-image {
+    width: 150px;
+    margin: 0 auto 2rem auto;
+    display: block;
+}
+
