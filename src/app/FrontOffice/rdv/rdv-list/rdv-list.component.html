@@ -1,0 +1,40 @@
+<app-header></app-header>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <h2>Liste Appointments</h2>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">dateRDV</th>
+            <th scope="col">price</th>
+            <th scope="col">metting</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reserv of reservations| paginate: { itemsPerPage: 4, currentPage: p }">
+        
+            
+            <td>{{reserv.dateRDV | date}}</td>
+            <td>{{reserv.price}}</td>
+            <td>{{reserv.metting }}</td>
+            <button class="btn btn-danger" (click)="supprimerRdv(reserv.idAppointment)">Supprimer</button>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+</div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <app-footer></app-footer>
