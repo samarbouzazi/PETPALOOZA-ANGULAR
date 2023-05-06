@@ -1,0 +1,97 @@
+/* Header styles */
+app-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Services section styles */
+  .services {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .services:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .services h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .services p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .services a {
+    background-color: #333;
+    color: #fff;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .services a:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Footer styles */
+  app-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+/* CSS for the container holding the header, services, and footer sections */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* CSS for the header and footer sections */
+  app-header, app-footer {
+    flex-shrink: 0;
+  }
+  
+  /* CSS for the services section */
+  .services {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin: 20px 0;
+  }
+  
+  /* CSS for the individual service elements */
+  .services .d-block {
+    flex-basis: 33.33%;
+    margin: 0 10px;
+  }
+  .services {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+  }
+
+  .img-thumbnail {
+    width: 110px; /* ajustez la largeur en fonction de vos besoins */
+    height: 110px; /* ajustez la hauteur en fonction de vos besoins */
+    object-fit: cover; /* afficher l'image entière en couvrant l'espace disponible */
+    border-radius: 50%; /* transformer l'image en cercle */
+  }
+  

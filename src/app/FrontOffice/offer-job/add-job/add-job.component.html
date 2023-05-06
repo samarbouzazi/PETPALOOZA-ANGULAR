@@ -1,0 +1,98 @@
+<app-header>
+
+</app-header>
+
+  
+
+<body>
+  <div class="row tm-mt-big">
+      <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="bg-white tm-block">
+              <div class="row">
+                  <div class="col-12">
+                      <h2 class="tm-block-title d-inline-block">Add JobOffre</h2>
+                  </div>
+              </div>
+              <div class="row mt-4 tm-edit-product-row">
+
+
+
+  <form #form='ngForm'(ngSubmit)="onSubmit(form)">
+      <div class="input-group mb-3">
+          <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Title
+              
+          </label>
+          <input  [(ngModel)]="offre.title" id="title" name="title" type="text" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+      </div>
+      <div class="input-group mb-3">
+          <label for="description" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">Description</label>
+          <textarea [(ngModel)]="offre.description" id="description"   name="description"class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" rows="3" required></textarea>
+      </div>
+      
+      <div class="input-group mb-3">
+          <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Type</label>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+            <select [(ngModel)]="offre.offretype" name="type" class="form-control validate">
+              <option *ngFor="let offretype of offretype" [value]="offretype">{{ offretype }}</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="input-group mb-3">
+          <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">localisation
+              
+          </label>
+          <input [(ngModel)]="offre.localisation" id="localisation" name="localisation"  type="text" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7">
+      </div>
+      
+      <div class="input-group mb-3">
+          <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">price en dinar tunisien
+              
+          </label>
+          <input [(ngModel)]="offre.price" id="price" name="price"  type="text" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7">
+      </div>
+
+
+      <div class="input-group mb-3">
+        <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Date debut
+            
+        </label>
+        <input  [(ngModel)]="offre.beginnigDate" id="beginnigDate" name="beginnigDate" type="date" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7">
+    </div>
+
+
+    <div class="input-group mb-3">
+      <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Date fin
+          
+      </label>
+      <input  [(ngModel)]="offre.endDate" id="endDate" name="endDate" type="date" class="form-control validate col-xl-9 col-lg-8 col-md-7 col-sm-7">
+  </div>
+    <div class="input-group mb-3">
+    <label for="image" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Image</label>
+    <div class="custom-file col-xl-8 col-lg-8 col-md-8 col-sm-7">
+      <input type="file" class="custom-file-input" id="image" name="image" (change)="onFileInput($event)">
+      <label class="custom-file-label" for="image">Choose file</label>
+    </div>
+  </div>
+      <div class="input-group mb-3">
+          <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+              <button type="submit" class="btn btn-primary">Add
+              </button>
+          </div>
+      </div>
+  </form>
+</div>
+            
+</div>
+</div>
+</div>
+
+
+</body>
+              
+
+
+<app-footer>
+
+
+</app-footer>

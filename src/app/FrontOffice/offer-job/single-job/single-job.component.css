@@ -1,0 +1,199 @@
+body {
+    background: linear-gradient(to bottom, #87CEEB, #FFC0CB, #98FB98);
+  }
+  
+.fancy-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation-name: slideIn;
+    animation-duration: 1s;
+  }
+  
+  .fancy-btn {
+    background-color: #f8c24d;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .fancy-btn:hover {
+    background-color: #333;
+    color: #f8c24d;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  .fancy-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation-name: slideIn;
+    animation-duration: 2s;
+  }
+  
+  .fancy-price {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+  
+  .fancy-location {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+  
+  .fancy-btn {
+    background-color: #f8c24d;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .fancy-btn:hover {
+    background-color: #333;
+    color: #f8c24d;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  .fancy-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation-name: slideIn;
+    animation-duration: 1s;
+  }
+  
+  .fancy-btn {
+    background-color: #f8c24d;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .fancy-btn:hover {
+    background-color: #333;
+    color: #f8c24d;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  
+  .fancy-text:nth-of-type(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .fancy-text:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .fancy-text:nth-of-type(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .fancy-text:nth-of-type(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .fancy-text:nth-of-type(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .fancy-text:nth-of-type(6) {
+    animation-delay: 0.6s;
+  }
+  
+  .fancy-text:nth-of-type(7) {
+    animation-delay: 0.7s;
+  }
+  
+  .fancy-text:nth-of-type(8) {
+    animation-delay: 0.8s;
+  }
+  
+  .fancy-text:nth-of-type(9) {
+    animation-delay: 0.9s;
+  }
+  
+  .fancy-text:nth-of-type(10) {
+    animation-delay: 1s;
+  }
+  .img-animation {
+    animation-name: rotate;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-style: preserve-3d;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  
+  
+  
+  
+  

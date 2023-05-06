@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Event } from 'src/app/models/Event';
 import { map, Observable } from 'rxjs';
 import { CountType } from 'src/app/models/CountType';
-import { Event } from 'src/app/models/Event';
 
 
 

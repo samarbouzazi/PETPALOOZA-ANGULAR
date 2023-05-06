@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import { Event } from 'src/app/models/Event';
 import { eventService } from 'src/app/services/Evenement/event.service';
-;
 
 @Component({
   selector: 'app-list-event',
