@@ -1,0 +1,49 @@
+<app-header>
+    
+</app-header>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" src="/../assets/css/animate.css">
+    
+    <link rel="stylesheet" src="/../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" src="/../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" src="/../assets/css/magnific-popup.css">
+
+
+    <link rel="stylesheet" src="/../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" src="/../assets/css/jquery.timepicker.css">
+
+    <link rel="stylesheet" src="/../assets/css/flaticon.css">
+    <link rel="stylesheet" src="/../assets/css/style.css">
+</head>
+
+
+
+  <section>
+    <br>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let event of events">
+        <div >
+        <img [src]="'http://localhost/img/' + event.image + '.jpg'" class="img-thumbnail">
+          
+          <div class="card-body">
+            <h5 class="card-title">{{ event.titre }}</h5>
+            <p class="card-text">{{ event.description }}</p>
+            
+            <a [routerLink]="['/detail-event']" class="btn btn-primary">Afficher</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <app-footer></app-footer>

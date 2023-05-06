@@ -3,33 +3,38 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Event } from 'src/app/models/Event';
 import { eventService } from 'src/app/services/Evenement/event.service';
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-list-events',
+  templateUrl: './list-events.component.html',
+  styleUrls: ['./list-events.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ListEventsComponent implements OnInit {
+  
 
-  latestEvents!: Event[];
-
-
-  constructor(private eventService: eventService, private _sanitizer : DomSanitizer) {}
-
+  events! : Event[]
+  constructor(private eventService : eventService , private _sanitizer : DomSanitizer){}
+  
   ngOnInit(): void {
-    this.eventService.getEvents3().subscribe(
-      events => {
-        this.latestEvents = events;
-      },
-      error => {
-        console.log('Error fetching events:', error);
-      }
-    );
+    this.getAllAnimals();
   }
+
+  getAllAnimals(){
+    this.eventService.getEventsList().subscribe(res => {
+      this.events= res
+      console.log(res)
+    })
+  }
+
 
   convert(base64String : any){
     console.log(this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,'+base64String))
     return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,'+base64String);
   }
+
+
+
+
 
 
 }
