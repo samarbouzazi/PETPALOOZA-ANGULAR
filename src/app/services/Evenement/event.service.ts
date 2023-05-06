@@ -11,6 +11,7 @@ import { Event } from 'src/app/models/Event';
 })
 export class eventService {
   private baseURL = "http://localhost:8888/admin";
+  
 
   constructor(private httpClient: HttpClient) { }
 
