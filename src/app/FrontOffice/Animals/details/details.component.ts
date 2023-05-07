@@ -22,6 +22,7 @@ export class DetailsComponent  implements OnInit{
 
 
   animalUser!:any
+
 //id!: number;
 
   //idUser=localStorage.getItem('id');
@@ -32,6 +33,7 @@ export class DetailsComponent  implements OnInit{
   id!:number;
 
   ngOnInit(): void {
+    console.log("the id of user is \n "+ this.idUser)
 
     this.currentUser = this.storageService.getUser();
 
@@ -52,16 +54,16 @@ export class DetailsComponent  implements OnInit{
     })
 
     this.service.getLikesByIdAnimal(this.idAnimal).subscribe(res=>this.nblike=res)
-    
+
     this.service.getDisLikesByIdAnimal(this.idAnimal).subscribe(res=>this.nbDislike=res)
     this.service.getNbrInteresstedByIdAnimal(this.idAnimal).subscribe(res=>this.nbrInteressted=res)
-/*this.service.getRateAnimalUser(this.idAnimal,4).subscribe(res=>{
-  
-this.animalUser=res
-this.test=this.animalUser.liked;
+    /*this.service.getRateAnimalUser(this.idAnimal,4).subscribe(res=>{
 
-})*/
-    
+    this.animalUser=res
+    this.test=this.animalUser.liked;
+
+    })*/
+
   }
 
   Addlike(){
@@ -70,6 +72,7 @@ this.test=this.animalUser.liked;
         idAnimal:this.idAnimal
       },
       user:{
+
         idUser:this.id
       },
       liked:true
@@ -81,10 +84,11 @@ this.test=this.animalUser.liked;
      else{
       window.location.reload()
      }
+
     })
 
 
-    
+
 
   }
 
@@ -94,26 +98,31 @@ this.test=this.animalUser.liked;
         idAnimal:this.idAnimal
       },
       user:{
+
         idUser:this.id
       },
       liked:false
     }
     this.service.addDisLike(body,this.idAnimal,this.id).subscribe(res =>{
+
       if(res==null){
         alert("vous avez déja réagie sur ce poste")
-       }
-       else{
+      }
+      else{
         window.location.reload()
-       }
+      }
     })
-   
+
 
   }
   addInteressted(){
 
+
     this.service.addInteressted(this.idAnimal,this.id).subscribe(res=>console.log(res))
+
     window.location.reload()
-}
+  }
+
 
 // DeletAnimal(){
 //   this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
@@ -125,11 +134,14 @@ this.test=this.animalUser.liked;
 DeletAnimal() {
   if (confirm("Are you sure you want to delete this animal?")) {
     this.service.DeleteAnimalById(this.idAnimal).subscribe(res => console.log(res));
+
     this.route.navigate(['/animals']).then(() => {
       location.reload();
     });
   }
+
 }
+
 
 
 }

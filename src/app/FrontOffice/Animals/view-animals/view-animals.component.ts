@@ -8,7 +8,7 @@ import { AnimalService } from 'src/app/services/Animal/animal.service';
   styleUrls: ['./view-animals.component.css']
 })
 export class ViewAnimalsComponent implements OnInit {
-  
+  p: number = 1;
 
   animals! : any[]
 

@@ -117,7 +117,7 @@
         <div class="col-3"> 
           <button (click)="exportAnimalsToExcel()" class="btn-green">Export to Excel</button>
         </div>
-    
+
       </div>
     </form>
   </div>
@@ -140,7 +140,7 @@
         </thead>
         <tbody>
 
-            <tr  *ngFor = "let item of animal">
+            <tr  *ngFor = "let item of animal | paginate: { itemsPerPage: 4, currentPage: p }" >
                            
                 <td>{{ item.nameAnimal }}</td>
 <td class="text-center">{{ item.race }}</td>
@@ -158,7 +158,25 @@
             </tbody>     
     
   </table>
+
 </div>
+
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Race</th>
+      <th>Nombre d'animaux</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of animalRaceStats">
+      <td>{{ result[0] }}</td>
+      <td>{{ result[1] }}</td>
+    </tr>
+  </tbody>
+</table> -->
 
 </body>
 

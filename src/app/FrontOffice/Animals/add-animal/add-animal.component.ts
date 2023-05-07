@@ -18,7 +18,7 @@ export class AddAnimalComponent implements OnInit{
   previewImage:any
 
   constructor(private service : AnimalService , private router:ActivatedRoute, private route: Router){}
-   
+
 
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ Sumbit(form:any){
 
   this.service.add(form.value,image).subscribe(res=>console.log(res))
   this.route.navigate(['/animals']).then(() => {
-    location.reload();
+  //  location.reload();
   });
 
 
