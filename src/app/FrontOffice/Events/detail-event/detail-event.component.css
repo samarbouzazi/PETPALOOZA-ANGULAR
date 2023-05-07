@@ -1,0 +1,72 @@
+/* Set box sizing to border-box */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Remove default margin and padding */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style header */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  /* Style main content */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .event-image {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    height: 500px;
+  }
+  
+  .event-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .event-detail {
+    flex-basis: 48%;
+  }
+  
+  .event-detail h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-detail p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .event-description {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Style footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  

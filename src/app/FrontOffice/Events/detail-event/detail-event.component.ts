@@ -36,7 +36,7 @@ export class DetailEventComponent implements OnInit {
   addInteressted(){
 
     this.service.addInteressted(this.numEvent,2).subscribe(res=>console.log(res))
-    window.location.reload()
+    //window.location.reload()
 }
   
 }

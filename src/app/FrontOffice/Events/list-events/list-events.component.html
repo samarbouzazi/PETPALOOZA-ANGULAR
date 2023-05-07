@@ -29,8 +29,13 @@
   <section>
     <br>
     <div class="row">
+      <div class="card">
+        <input class ="form-control"type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="
+Taper le nom User">
+</div>
       <div class="col-md-4 mb-4" *ngFor="let event of events">
         <div >
+        
         <img [src]="'http://localhost/img/' + event.image + '.jpg'" class="img-thumbnail">
           
           <div class="card-body">
