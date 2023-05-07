@@ -26,6 +26,22 @@ export class ListEventsComponent implements OnInit {
       console.log(res)
     })
   }
+name:any;
+
+  Search()
+  {
+    if(this.name=="")
+    {
+      this.getAllAnimals();
+    }
+    else 
+    {
+      this.events = this.events.filter(res => {
+        return res.titre && res.titre.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+    }
+  }
+
 
 
   convert(base64String : any){

@@ -14,6 +14,8 @@ export interface Role {
 }
 
 
+
+
 @Component({
   selector: 'app-admin-board',
 
@@ -29,15 +31,21 @@ export class AdminBoardComponent  implements  OnInit{private roles: string[] = [
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+  eventBusSub?: Subscription;
+  constructor(
+    private storageService: StorageService,
+    private authService: AuthService,
+    private eventBuService: EventBusService,
+    private router:Router
+  ) {}
+
   p: number = 1;
   itempages:number=  8 ;
   totalPages:any;
   users!: User[];
   userID!:number;
-
-
-
   selectedUser: User | null = null;
+
 
   userRoles!: Role[];
   ngOnInit(): void {

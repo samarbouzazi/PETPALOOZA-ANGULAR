@@ -73,6 +73,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxStarRatingComponent, NgxStarRatingModule } from 'ngx-star-rating';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 
 
 
@@ -123,15 +127,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        NgxPaginationModule,
-         NgxQRCodeModule,
-    ],
-  providers: [
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+  HttpClientModule,
+    FormsModule,
+    NgxPaginationModule,
+    NgxQRCodeModule,
+    NgxStarRatingModule,
+    Ng2SearchPipeModule,
+  
+
+  ],
+    providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
@@ -143,10 +151,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 
     ],
- 
-
-   
-
 
   bootstrap: [AppComponent]
 })

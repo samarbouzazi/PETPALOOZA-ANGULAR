@@ -10,8 +10,7 @@ import { CountType } from 'src/app/models/CountType';
   providedIn: 'root'
 })
 export class eventService {
-  private baseURLPublic = "http://localhost:8888/public";
-  private baseURLUser = "http://localhost:8888/user";
+
   private baseURL = "http://localhost:8888/admin";
 
   
@@ -19,7 +18,7 @@ export class eventService {
   constructor(private httpClient: HttpClient) { }
 
   getEventsList(): Observable<Event[]> {
-    return this.httpClient.get<Event[]>(`${this.baseURLPublic}/affev`);
+    return this.httpClient.get<Event[]>(`${this.baseURL}/affev`);
   }
 
   createEvent(fct: any): Observable<Object> {
@@ -72,7 +71,7 @@ export class eventService {
 
 
   getEvents3(): Observable<Event[]> {
-    return this.httpClient.get<Event[]>(this.baseURLPublic).pipe(
+    return this.httpClient.get<Event[]>(this.baseURL).pipe(
       map(events => events.sort((a, b) => new Date(b.dateDebut).getTime() - new Date(a.dateDebut).getTime()).slice(0, 3))
     );
   }
@@ -85,7 +84,7 @@ export class eventService {
 
 
   addInteressted(idEvent: any, idUser: any) {
-    return this.httpClient.get(this.baseURLUser + "/interested/" + `${idEvent}` + "/" + `${idUser}`);
+    return this.httpClient.get(this.baseURL + "/interested/" + `${idEvent}` + "/" + `${idUser}`);
   }
 
 
