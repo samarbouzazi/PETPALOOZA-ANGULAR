@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from 'src/app/models/Event';
-import { EventService } from 'src/app/services/Evenement/event.service';
+import { eventService } from 'src/app/services/Evenement/event.service';
 @Component({
   selector: 'app-update-event',
   templateUrl: './update-event.component.html',

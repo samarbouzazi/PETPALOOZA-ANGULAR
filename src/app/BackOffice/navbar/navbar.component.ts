@@ -55,19 +55,7 @@ console.log("the username is \n "+ username);
     return this.username;
   }
 
-  // logout(): void {
-  //   this.authService.logout().subscribe({
-  //     next: res => {
-  //       console.log(res);
-  //       this.storageService.clear();
-  //
-  //       window.location.reload();
-  //     },
-  //     error: err => {
-  //       console.log(err);
-  //     }
-  //   });
-  // }
+
 
   doSignout(){
 
@@ -78,10 +66,7 @@ console.log("the username is \n "+ username);
 
 
   }
-  // doSignout() {
-  //   this.authService.signout();
-  //   this.router.navigateByUrl("login");
-  // }
+  
 
 
 }

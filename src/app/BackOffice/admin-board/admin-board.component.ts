@@ -1,19 +1,38 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../Models/user";
+
 import {UserCrudService} from "../../services/User/user-crud.service";
-import {Observable} from "rxjs";
-import {UserListComponent} from "../../FrontOffice/User/userCrud/user-list/user-list.component";
+import {Observable, Subscription} from "rxjs";
+
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import Swal from 'sweetalert2';
+
+
 export interface Role {
   id: number;
   roleName: string;
 }
 
 
+export interface User {
+  idUser:number;
+  firstName: string;
+  lastName : string;
+  username  : string;
+  email: string;
+  birthDate  :Date;
+  registrationDate  : Date;
+  phone : string;
+  occupation : string;
+  active : number;
+  role :string [];
+  numberOfSignal: number;
+  address:string;
+  userRole?: string;
+
+}
 
 
 @Component({
@@ -32,12 +51,7 @@ export class AdminBoardComponent  implements  OnInit{private roles: string[] = [
   showModeratorBoard = false;
   username?: string;
   eventBusSub?: Subscription;
-  constructor(
-    private storageService: StorageService,
-    private authService: AuthService,
-    private eventBuService: EventBusService,
-    private router:Router
-  ) {}
+
 
   p: number = 1;
   itempages:number=  8 ;

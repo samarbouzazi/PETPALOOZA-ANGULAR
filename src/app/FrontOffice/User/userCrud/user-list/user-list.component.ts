@@ -1,6 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {UserCrudService} from "../../../../services/User/user-crud.service";
-import {User} from "../../../../Models/user";
+export interface User {
+  idUser:number;
+  firstName: string;
+  lastName : string;
+  username  : string;
+  email: string;
+  birthDate  :Date;
+  registrationDate  : Date;
+  phone : string;
+  occupation : string;
+  active : number;
+  role :string [];
+  numberOfSignal: number;
+  address:string;
+  userRole?: string;
+
+}
+
 
 @Component({
   selector: 'app-user-list',
@@ -19,12 +36,6 @@ constructor(private usersCrud: UserCrudService) {
 
 }
 
-
-  // getBooks() {
-  //   this.usersCrud.getListOfUser().subscribe(data => {
-  //     this.users = data;
-  //   });
-  // }
 
 
 

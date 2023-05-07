@@ -29,7 +29,6 @@ export interface User {
   role :string [];
   numberOfSignal: number;
   address:string;
-
   userRole?: string;
 
 }

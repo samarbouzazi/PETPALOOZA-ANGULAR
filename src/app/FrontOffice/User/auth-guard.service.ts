@@ -9,7 +9,7 @@ import {
 } from "@angular/router";
 import {UserService} from "../../services/User/user.service";
 import {Observable, of, throwError} from "rxjs";
-import {User} from "../../Models/user";
+
 import { catchError } from 'rxjs/operators';
 import {AuthService} from "../../services/User/auth.service";
 

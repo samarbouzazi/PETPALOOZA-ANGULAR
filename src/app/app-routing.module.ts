@@ -32,7 +32,6 @@ import { SingleJobComponent } from './FrontOffice/offer-job/single-job/single-jo
 import { AddAnimalBackComponent } from './BackOffice/AnimalsbBack/add-animal-back/add-animal-back.component';
 import { ViewAnimalBackComponent } from './BackOffice/AnimalsbBack/view-animal-back/view-animal-back.component';
 import { UpdateAnimalBackComponent } from './BackOffice/AnimalsbBack/update-animal-back/update-animal-back.component';
-import { RdvListComponent } from './FrontOffice/rdv/rdv-list/rdv-list.component';
 import { ListRdvComponent } from './BackOffice/rdvBack/list-rdv/list-rdv.component';
 import { ListEventsComponent } from './FrontOffice/Events/list-events/list-events.component';
 import { DetailEventComponent } from './FrontOffice/Events/detail-event/detail-event.component';
@@ -86,7 +85,6 @@ const routes: Routes = [
   { path : "update-animal-back/:id" , component : UpdateAnimalBackComponent},
   //RDV
   // { path : "appointment/add" , component : AddreservationComponent },
-  { path : "appointments" , component : RdvListComponent },
   { path : "appointments/back" , component : ListRdvComponent }
 
 ];
