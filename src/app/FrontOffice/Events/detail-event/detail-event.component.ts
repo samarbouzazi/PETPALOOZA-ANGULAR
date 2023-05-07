@@ -22,10 +22,14 @@ export class DetailEventComponent implements OnInit {
   interestedUsers!: any[];
   participants!: any[];
   image!:any;
+
+  ids:any;
   constructor(private service : eventService , private router:ActivatedRoute, private route: Router){}
 
   ngOnInit(): void {
     this.numEvent=this.router.snapshot.paramMap.get('id');
+    this.ids= localStorage.getItem("id");
+    console.log('\n the id is : '+ this.ids);
 
     this.service.getEventById(this.numEvent).subscribe(res =>{
       console.log(res)
@@ -35,7 +39,7 @@ export class DetailEventComponent implements OnInit {
   }
   addInteressted(){
 
-    this.service.addInteressted(this.numEvent,2).subscribe(res=>console.log(res))
+    this.service.addInteressted(this.numEvent,this.ids).subscribe(res=>console.log(res))
     //window.location.reload()
 }
   

@@ -81,6 +81,12 @@ export class OffreserviceService {
     return this.httpClient.get<Offre[]>(this.baseURL, { params });
   }
 
+
+  addInteressted(idEvent: any, idUser: any) {
+    return this.httpClient.get(this.baseURL + "/interesser/" + `${idEvent}` + "/" + `${idUser}`);
+  }
+
+
 }
 
   

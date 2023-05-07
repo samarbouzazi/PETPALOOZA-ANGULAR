@@ -20,9 +20,12 @@ offretype!: string;
 nbintereteds!: any;
 localisation !: string;
 image!:any;
+ids:any;
 constructor(private service : OffreserviceService , private router:ActivatedRoute, private route: Router){}
 ngOnInit(): void {
   this.idJob=this.router.snapshot.paramMap.get('id');
+  this.ids= localStorage.getItem("id");
+    console.log('\n the id is : '+ this.ids);
 
     this.service.getOffreById(this.idJob).subscribe(res =>{
       console.log(res)
@@ -30,5 +33,11 @@ ngOnInit(): void {
     })
 } 
 
+
+addInteressted(){
+
+  this.service.addInteressted(this.idJob,this.ids).subscribe(res=>console.log(res))
+  //window.location.reload()
+}
 
 }
