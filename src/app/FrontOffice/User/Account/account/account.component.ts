@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageService} from "../../../../services/User/storage.service";
+import {UserService} from "../../../../services/User/user.service";
 
 @Component({
   selector: 'app-account',
@@ -10,16 +10,26 @@ export class AccountComponent implements OnInit {
   currentUser: any;
   id!:number;
 
-  constructor(private storageService: StorageService) { }
+
+  username:any;
+  user: any;
+
+  constructor(private userS: UserService) { }
 
   ngOnInit(): void {
-    this.currentUser = this.storageService.getUser();
 
-    this.id=this.currentUser.id;
-    console.log("the id of the current user is "+this.id);
+ //   this.currentUser = this.userS.getUser();
+    this.currentUser = this.userS.getUserID();
+    console.log("the is is \n "+ this.currentUser)
+    const id = localStorage.getItem("id");
+    const username = localStorage.getItem("username");
+
+    console.log("The fucking id is \n "+ id);
+    console.log("The username is \n "+ username);
+    console.log(" \n the current user ishhhhhhhhhh "+ this.currentUser);
 
   }
 
 
-  
+
 }

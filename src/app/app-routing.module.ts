@@ -9,9 +9,12 @@ import {NavbarComponent} from "./BackOffice/navbar/navbar.component";
 import {AdminBoardComponent} from "./BackOffice/admin-board/admin-board.component";
 import {AccountComponent} from "./FrontOffice/User/Account/account/account.component";
 
+import {UnauthorizedComponent} from "./FrontOffice/User/unauthorized/unauthorized.component";
+import {AuthGuardService} from "./FrontOffice/User/auth-guard.service";
 import { CreateOffreComponent } from './BackOffice/offreback/create-offre/create-offre.component';
 import { ListOffreComponent } from './BackOffice/offreback/list-offre/list-offre.component';
 import { UpdateOffreComponent } from './BackOffice/offreback/update-offre/update-offre.component';
+
 
 import { CreateEventComponent } from './BackOffice/EventBack/create-event/create-event.component';
 import { ListEventComponent } from './BackOffice/EventBack/list-event/list-event.component';
@@ -19,6 +22,9 @@ import { UpdateEventComponent } from './BackOffice/EventBack/update-event/update
 import { UpdateAnimalComponent } from './FrontOffice/Animals/update-animal/update-animal.component';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
 import { ViewAnimalsComponent } from './FrontOffice/Animals/view-animals/view-animals.component';
+
+import {ForgetPWDComponent} from "./FrontOffice/User/Account/forget-pwd/forget-pwd.component";
+import {Test99Component} from "./FrontOffice/User/Account/VerifyAccount/test99.component";
 import { ListJobComponent } from './FrontOffice/offer-job/list-job/list-job.component';
 import { AddJobComponent } from './FrontOffice/offer-job/add-job/add-job.component';
 import { UpdateJobComponent } from './FrontOffice/offer-job/update-job/update-job.component';
@@ -38,9 +44,19 @@ const routes: Routes = [
 
 
   { path: '', component: HomeComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent, canActivate: [AuthGuardService] },
+  { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+
+
+  //{ path: 'verifyAccountLink', component: RegisterComponent },
+  {path :'forgetPWD' ,component: ForgetPWDComponent},
+
+  { path: 'verifyAccountLink', component: Test99Component, pathMatch: 'full' },
+
+
   {path:'navbar', component:NavbarComponent},
   //event
   {path:'admin', component:AdminBoardComponent},
@@ -50,6 +66,7 @@ const routes: Routes = [
   {path: 'list-events', component:ListEventsComponent},
   {path: 'detail-event/:id', component:DetailEventComponent},
   //Animal
+
   { path : "animals" , component : ViewAnimalsComponent },
   { path : "animals/add" , component : AddAnimalComponent },
   {path:'admin', component:AdminBoardComponent},
@@ -59,6 +76,7 @@ const routes: Routes = [
   {path: 'update-offre/:id', component:UpdateOffreComponent},
   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
   { path : "detailsAnimal/:id" , component : DetailsComponent },
+
   { path : "add-jobOffre" , component : AddJobComponent },
   { path : "list-jobOffre" , component : ListJobComponent },
   { path : "update-jobOffre" , component : UpdateJobComponent },
@@ -72,6 +90,21 @@ const routes: Routes = [
   { path : "appointments/back" , component : ListRdvComponent }
 
 ];
+// =======
+//   { path: '', component: HomeComponent },
+//   { path: 'account', component: AccountComponent },
+//   { path: 'login', component: LoginComponent },
+//   { path: 'register', component: RegisterComponent },
+//   {path:'navbar', component:NavbarComponent},
+//   //event
+//
+//   //Animal
+// >>>>>>> main
+//   { path : "animals" , component : ViewAnimalsComponent },
+//   { path : "animals/add" , component : AddAnimalComponent },
+//   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
+//   { path : "detailsAnimal/:id" , component : DetailsComponent },
+// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
