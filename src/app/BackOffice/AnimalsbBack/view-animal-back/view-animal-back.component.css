@@ -1,0 +1,33 @@
+.btn-green {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 5px;
+  }
+  
+  .pagination a:hover {
+    background-color: #ccc;
+  }
+  
+  .pagination .active {
+    background-color: #333;
+    color: #fff;
+  }
+  

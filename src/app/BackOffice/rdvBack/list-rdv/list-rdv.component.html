@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-navbar></app-navbar>
+<br>
+<body>
+
+<div class="container">
+   
+    <div class="col-3"> 
+        <button (click)="exportToExcel()" class="btn-green">Export to Excel</button>
+      </div>
+
+    <br>     
+  <table class="table table-success table-striped">
+    <thead>
+        <tr class="tm-bg-gray">
+                         
+            <th scope="col" class="text-center">Date of the Appointments</th>
+            <th scope="col" class="text-center">Price</th>
+            <th scope="col" class="text-center">Meeting</th>
+        
+            <th scope="col">Actions</th>
+           
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let reserv of reservations | paginate: { itemsPerPage: 4, currentPage: p }">
+        
+            
+                <td>{{reserv.dateRDV | date}}</td>
+                <td>{{reserv.price}}</td>
+                <td>{{reserv.metting }}</td>
+
+              
+<td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "supprimerRdv(reserv.idAppointment)"></i>
+    <br>
+   
+  
+  </td>
+              </tr>
+            </tbody>     
+    
+  </table>
+</div>
+
+</body>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<app-footer-back-end></app-footer-back-end>
+</html>

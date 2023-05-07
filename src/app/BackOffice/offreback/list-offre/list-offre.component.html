@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <app-navbar></app-navbar>
+  <br />
+  <body>
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <a [routerLink]="['/addoffre']" class="btn btn-small btn-primary">Add New Offre</a>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-3">
+                <input type="text" [(ngModel)]="searchQuery.title" class="form-control" placeholder="Title">
+              </div>
+              <div class="col-md-3">
+                <input type="text" [(ngModel)]="searchQuery.localisation" class="form-control" placeholder="localisation">
+              </div>
+              <div class="col-md-3">
+                <input type="text" [(ngModel)]="searchQuery.offretype" class="form-control" placeholder="offretype">
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-primary" (click)="search()">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <br /><br />
+        <table class="table table-success table-striped">
+          <thead class="text-center">
+            <tr class="tm-bg-gray">
+              <th (click)="sort('title')">Title<i *ngIf="key === 'title'" class="fa fa-sort float-right"></i></th>
+              <th (click)="sort('offretype')">Type<i *ngIf="key === 'offretype'" class="fa fa-sort float-right"></i></th>
+              <th (click)="sort('localisation')">localisation<i *ngIf="key === 'localisation'" class="fa fa-sort float-right"></i></th>
+              <th scope="col" class="text-center">description</th>
+              <th scope="col" class="text-center">price</th>
+              <th scope="col" class="text-center">Date Debut</th>
+              <th scope="col" class="text-center">Date Fin</th>
+              <th scope="col" class="text-center">Image</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+
+            <tr *ngFor="let fct of offres">
+              <td class="text-center">{{ fct.title }}</td>
+              <td class="text-center">{{ fct.offretype }}</td>
+              <td class="text-center">{{ fct.localisation }}</td>
+              <td class="text-center">{{ fct.description }}</td>
+              <td class="text-center">{{ fct.price }}</td>
+              <td class="text-center">{{ fct.beginnigDate }}</td>
+              <td class="text-center">{{ fct.endDate }}</td>
+              <td><img [src]="'http://localhost/img/' + fct.image + '.jpg'" class="img-thumbnail"></td>
+              <td class="text-center" *ngIf=this.isAdmin>
+                <i class="fas fa-trash-alt tm-trash-icon" (click)="deleteOffre(fct.idJob)"></i>
+                <br>
+                <i class="fas fa-edit tm-edit-icon" (click)="updateOffre(fct.idJob)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <app-footer-back-end></app-footer-back-end>
+</html>

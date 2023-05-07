@@ -21,7 +21,14 @@ export interface Role {
   styleUrls: ['./admin-board.component.css']
 })
 
-export class AdminBoardComponent  implements  OnInit{
+
+
+
+export class AdminBoardComponent  implements  OnInit{private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
   p: number = 1;
   itempages:number=  8 ;
   totalPages:any;

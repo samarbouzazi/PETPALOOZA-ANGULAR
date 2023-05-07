@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+
+<body>
+    <div class="row tm-mt-big">
+        <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div class="bg-white tm-block">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Add Animal</h2>
+                    </div>
+                </div>
+                <div class="row mt-4 tm-edit-product-row">
+
+
+
+    <form #form="ngForm" (ngSubmit)="Sumbit(form)" id="contactForm" class="contactForm">
+                <div class="input-group mb-3">
+            <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Name
+                
+            </label>
+            <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Name" [(ngModel)]="name">
+        </div>
+        <div class="input-group mb-3">
+            <label for="description" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">Race</label>
+            <input type="email" class="form-control" name="race" id="email" placeholder="race" [(ngModel)]="race">
+        </div>
+        
+        <div class="input-group mb-3">
+            <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Gender</label>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+                <select name="gender" id="" class="form-control" [(ngModel)]="gender">
+                    <option >Male</option>
+                    <option >Femelle</option>
+                  </select>  <br>
+            </div>
+          </div>
+          
+        
+       
+        <br>
+        
+        <div class="input-group mb-3">
+            <label for="expire_date" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Description
+                
+            </label>
+            <textarea name="description" class="form-control" id="message" cols="30" [(ngModel)]="description" rows="4" placeholder="description"></textarea>
+           
+        </div>
+        <div class="input-group mb-3">
+            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Image
+                
+            </label>
+            <input type="file"  class="form-control" id="message" cols="30" [(ngModel)]="image" rows="4" placeholder="description" (change)="onFileSelected($event)">
+        </div>
+
+
+        <div class="input-group mb-3">
+          <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Date Of Birth
+              
+          </label>
+          <input type="date" class="form-control" name="birthDate" id="email" placeholder="Email" [(ngModel)]="birthDate">
+        </div>
+        <div class="input-group mb-3">
+            <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+                <button type="submit" class="btn btn-primary">Add
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="col-md-5 d-flex align-items-stretch">
+    <div class="info-wrap w-100 p-5 img" style="background-image: url(images/img.jpg);">
+</div>
+</div>
+
+</div>
+              
+</div>
+</div>
+
+</div>
+</body>
+<app-footer-back-end></app-footer-back-end>
+

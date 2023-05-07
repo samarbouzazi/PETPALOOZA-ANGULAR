@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AnimalService } from 'src/app/services/Animal/animal.service';
+import { StorageService } from 'src/app/services/User/storage.service';
 
 @Component({
   selector: 'app-details',
@@ -19,16 +20,31 @@ export class DetailsComponent  implements OnInit{
   nbrInteressted!:any;
   test!:any;
 
+
   animalUser!:any
-//zied hethat  lehna mech fe ngOnInit() we 3aweth il 2 ib this.idUser
-  idUser=localStorage.getItem('id');
+
+//id!: number;
+
+  //idUser=localStorage.getItem('id');
 // *ngIf="animal.userAnimal == idUser"  html
-  constructor(private service : AnimalService , private router:ActivatedRoute, private route: Router){}
-
-
+  constructor(private service : AnimalService , private router:ActivatedRoute, private route: Router,private storageService: StorageService){}
+   
+  currentUser: any;
+  id!:number;
 
   ngOnInit(): void {
     console.log("the id of user is \n "+ this.idUser)
+
+    this.currentUser = this.storageService.getUser();
+
+    this.id=this.currentUser.id;
+    console.log("the id of the current user is "+this.id);
+
+   const id= localStorage.getItem("id");
+
+   console.log('\n the id is : '+ this.id);
+   console.log('\n the id  2222222 is : '+ this.id);
+
 
     this.idAnimal=this.router.snapshot.paramMap.get('id');
 
@@ -56,17 +72,19 @@ export class DetailsComponent  implements OnInit{
         idAnimal:this.idAnimal
       },
       user:{
-        idUser:this.idUser
+
+        idUser:this.id
       },
       liked:true
     }
-    this.service.addLike(body,this.idAnimal,this.idUser).subscribe(res =>{
-      if(res==null){
-        alert("vous avez déja réagie sur ce poste")
-      }
-      else{
-        window.location.reload()
-      }
+    this.service.addLike(body,this.idAnimal,this.id).subscribe(res =>{
+     if(res==null){
+      alert("vous avez déja réagie sur ce poste")
+     }
+     else{
+      window.location.reload()
+     }
+
     })
 
 
@@ -80,11 +98,13 @@ export class DetailsComponent  implements OnInit{
         idAnimal:this.idAnimal
       },
       user:{
-        idUser:this.idUser
+
+        idUser:this.id
       },
       liked:false
     }
-    this.service.addDisLike(body,this.idAnimal,this.idUser).subscribe(res =>{
+    this.service.addDisLike(body,this.idAnimal,this.id).subscribe(res =>{
+
       if(res==null){
         alert("vous avez déja réagie sur ce poste")
       }
@@ -97,16 +117,30 @@ export class DetailsComponent  implements OnInit{
   }
   addInteressted(){
 
-    this.service.addInteressted(this.idAnimal,this.idUser).subscribe(res=>console.log(res))
+
+    this.service.addInteressted(this.idAnimal,this.id).subscribe(res=>console.log(res))
+
     window.location.reload()
   }
 
-  DeletAnimal(){
-    this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
+
+// DeletAnimal(){
+//   this.service.DeleteAnimalById(this.idAnimal).subscribe(res=>console.log(res))
+//   this.route.navigate(['/animals']).then(() => {
+//     location.reload();
+//   });
+// }
+
+DeletAnimal() {
+  if (confirm("Are you sure you want to delete this animal?")) {
+    this.service.DeleteAnimalById(this.idAnimal).subscribe(res => console.log(res));
+
     this.route.navigate(['/animals']).then(() => {
       location.reload();
     });
   }
+
+}
 
 
 

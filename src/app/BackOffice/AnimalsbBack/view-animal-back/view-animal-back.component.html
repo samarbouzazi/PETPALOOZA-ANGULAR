@@ -1,0 +1,183 @@
+<!-- <app-navbar></app-navbar>
+<br>
+<div class="container">
+    <form #fr="ngForm" (ngSubmit)="searchAnimalByName(fr)">
+
+      <div class="row">
+        <div class="col-4">
+          <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Look for your Animal!" 
+            [(ngModel)]="nameAnimal" style="width: 300px;border-radius: 30px;">
+        </div>
+        <div class="col-2">
+           <button type="submit" class="btn btn-danger" style="margin-left: -140px; border-radius: 30px;">Search</button>
+        </div>
+
+        <div class="col-3">
+          <h6>Filter by Race</h6>
+          <select name="race" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="race"
+            (change)="filtreByRace()">
+            <option *ngFor="let race of allrace">{{race}}</option>
+          </select>
+
+        </div>
+        <div class="col-3">
+          <h6> Filter by Gender</h6>
+          <select name="gender" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="gender"
+            (change)="filtreByGender()">
+            <option>Male</option>
+            <option>Femelle</option>
+          </select>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <br>
+<table class="table" style="background-color: aliceblue;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name Animal</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Race</th>
+        <th scope="col">Description</th> 
+         <th scope="col">Action</th> 
+
+      </tr>
+    </thead>
+    <tbody >
+      <tr  *ngFor="let item of animal">
+        
+        <td>{{item.nameAnimal}}</td>
+        <td>{{item.birthDate}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.race}}</td>
+        <td>{{item.description}}</td>
+       <td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "deleteAnimal(item.idAnimal)"></i>
+        <br>
+          <i class="fas fa-edit tm-edit-icon" (click) = "updateAnimal(item.idAnimal)"></i>
+</td>
+       <td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "deleteAnimal(item.idAnimal)"></i>
+        <br>
+         <i class="fas fa-edit tm-edit-icon" (click) = "updateAnimal(item.idAnimal)"></i>
+
+        </td> 
+     
+      </tr>
+    </tbody>
+  </table>
+  <app-footer-back-end></app-footer-back-end>
+
+   -->
+
+ <app-navbar></app-navbar>
+ <br>
+ <div class="container">
+    <form #fr="ngForm" (ngSubmit)="searchAnimalByName(fr)">
+
+      <div class="row">
+        <div class="col-4">
+          <div class="input-group">
+            <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Look for your Animal!" [(ngModel)]="nameAnimal" style="border-radius: 30px;">
+            <button type="submit" class="btn btn-primary" style="border-radius: 30px; background-color: #3498db; border-color: #3498db;">Search</button>
+          </div>
+        </div>
+        <div class="col-3">
+          <h6>Filter by Race</h6>
+          <select name="race" id="race" class="form-select form-control-sm" [(ngModel)]="race" (change)="filtreByRaceback()" style="border-radius: 30px;">
+            <option *ngFor="let race of allrace">{{race}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <h6>Filter by Gender</h6>
+          <select name="gender" id="gender" class="form-select form-control-sm" [(ngModel)]="gender" (change)="filtreByGender()" style="border-radius: 30px;">
+            <option value="Male">Male</option>
+            <option value="Femelle">Femelle</option>
+          </select>
+        </div>
+    
+      
+        
+        <!-- <div class="col-3">
+          <h6>Filter by Race</h6>
+          <select name="race" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="race"
+            (change)="filtreByRaceback()">
+            <option *ngFor="let race of allrace">{{race}}</option>
+          </select>
+        </div>
+        
+        <div class="col-3">
+          <h6> Filter by Gender</h6>
+          <select name="gender" id="" class="form-control" style="border-radius: 30px;" [(ngModel)]="gender"
+            (change)="filtreByGender()">
+            <option>Male</option>
+            <option>Femelle</option>
+          </select>
+        </div> -->
+        <div class="col-3"> 
+          <button (click)="exportAnimalsToExcel()" class="btn-green">Export to Excel</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+ <br>
+<body>
+
+<div class="container"> 
+    <br>     
+  <table class="table table-success table-striped">
+    <thead>
+        <tr class="tm-bg-gray">
+                         
+            <th scope="col" class="text-center">Name </th>
+            <th scope="col" class="text-center">Race</th>
+            <th scope="col"class="text-center">Gender</th>
+            <th scope="col"class="text-center">Description</th>
+            <th scope="col"class="text-center">Date of Birth</th>
+            <th scope="col">Actions</th>
+           
+        </thead>
+        <tbody>
+
+            <tr  *ngFor = "let item of animal | paginate: { itemsPerPage: 4, currentPage: p }" >
+                           
+                <td>{{ item.nameAnimal }}</td>
+<td class="text-center">{{ item.race }}</td>
+<td class="text-center">{{ item.gender }}</td>
+<td class="text-center">{{ item.description }}</td>
+<td class="text-center">{{ item.birthDate }}</td>
+                 
+              
+<td class="text-center"><i class="fas fa-trash-alt tm-trash-icon" (click) = "deleteAnimal(item.idAnimal)"></i>
+    <br>
+    <i class="fas fa-edit tm-edit-icon" (click)= "updateAnimal(item.idAnimal)"></i>
+  
+  </td>
+              </tr>
+            </tbody>     
+    
+  </table>
+
+</div>
+
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Race</th>
+      <th>Nombre d'animaux</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of animalRaceStats">
+      <td>{{ result[0] }}</td>
+      <td>{{ result[1] }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+</body>
+
+ <app-footer-back-end></app-footer-back-end>
