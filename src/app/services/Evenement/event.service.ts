@@ -84,7 +84,7 @@ export class eventService {
 
 
   addInteressted(idEvent: any, idUser: any) {
-    return this.httpClient.get(this.baseURL + "/interested/" + `${idEvent}` + "/" + `${idUser}`);
+    return this.httpClient.get(this.baseURL + "/interesser/" + `${idEvent}` + "/" + `${idUser}`);
   }
 
 

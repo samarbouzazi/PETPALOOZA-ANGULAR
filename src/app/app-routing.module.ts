@@ -83,26 +83,8 @@ const routes: Routes = [
   { path : "animals/add-back" , component :AddAnimalBackComponent},
   { path : "animals/view-animal-back" , component : ViewAnimalBackComponent},
   { path : "update-animal-back/:id" , component : UpdateAnimalBackComponent},
-  //RDV
-  // { path : "appointment/add" , component : AddreservationComponent },
   { path : "appointments/back" , component : ListRdvComponent }
-
 ];
-// =======
-//   { path: '', component: HomeComponent },
-//   { path: 'account', component: AccountComponent },
-//   { path: 'login', component: LoginComponent },
-//   { path: 'register', component: RegisterComponent },
-//   {path:'navbar', component:NavbarComponent},
-//   //event
-//
-//   //Animal
-// >>>>>>> main
-//   { path : "animals" , component : ViewAnimalsComponent },
-//   { path : "animals/add" , component : AddAnimalComponent },
-//   { path : "UpdateAnimale/:id" , component : UpdateAnimalComponent },
-//   { path : "detailsAnimal/:id" , component : DetailsComponent },
-// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
