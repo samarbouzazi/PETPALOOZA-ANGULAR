@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from 'src/app/services/forum/forum.service';
 import { NgForm } from '@angular/forms';
-import { QuestionsModule } from 'src/app/models/questions/questions.module';
+
 import { Router,ActivatedRoute } from '@angular/router';
 
 
@@ -20,20 +20,24 @@ export class ForumComponent implements OnInit  {
   };
   question: any;
 
+  id!:number;
 
+    description!:String ;
+     createdDate!:Date;
   constructor(private forumService: ForumService,private router:ActivatedRoute, private route: Router) {}
  
   
   onSubmit(myForm: NgForm) {
     console.log(myForm.value);
-    this.forumService.addData(myForm.value)
-      .subscribe(response => {
-        console.log(response);
+    this.forumService.addquestion(myForm.value)
+      .subscribe(res => {
+        console.log(res);
       });
   }
 
   
   ngOnInit(): void {
+    
     this.forumService.getQuestions().subscribe(data => {
       this.question = data;
       
@@ -41,5 +45,19 @@ export class ForumComponent implements OnInit  {
     console.log(this.question);
   
   }
+
+  Sumbit(myform:any){
+
+   
+  
+    this.forumService.addanswer(myform.value).subscribe(res=>console.log(res))
+    
+  
+  
+  }
+ 
+
+
+ 
 
 }

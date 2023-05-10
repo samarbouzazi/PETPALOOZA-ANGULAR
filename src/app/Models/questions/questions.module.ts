@@ -14,5 +14,6 @@ import { CommonModule } from '@angular/common';
 export class QuestionsModule {
   id!:number;
 
-    question_description!:String ;
+    description!:String ;
+     createdDate!:Date;
  }

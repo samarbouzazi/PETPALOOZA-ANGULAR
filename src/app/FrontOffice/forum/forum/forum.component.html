@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
 </head>
-<app-header></app-header>
+
 
 <body>
     <header>
@@ -22,9 +23,7 @@
         <div class="search-box">
             <div>
                 <select name="" id="">
-                    <option value="Everything">Everything</option>
-                    <option value="Titles">Titles</option>
-                    <option value="Descriptions">Descriptions</option>
+                    <option value="Descriptions">Descriptions</option> 
                 </select>
                 <input type="text" name="q" placeholder="search ...">
                 <button><i class="fa fa-search"></i></button>
@@ -38,24 +37,24 @@
             </div>
             <div class="subforum-row" *ngFor="let q of question">
                 <div class="subforum-icon subforum-column center">
-                    <i >1</i>
+                    <i >{{ q.id}}</i>
                 </div>
                 <div class="subforum-description subforum-column" >
                     <h4><a href="#">Description Title</a></h4>
-                    <h5>{{ q.question_description }}</h5>
+                    <h5>{{ q.description }}</h5>
                 </div>
-                <div class="subforum-stats subforum-column center">
-                    <span>24 Posts | 12 Topics</span>
-                </div>
+            
                 <div class="subforum-info subforum-column">
-                    <b><a href="">Last post</a></b> by <a href="">JustAUser</a> 
-                    <br>on <small>12 Dec 2020</small>
+                    <b><a href="">Last post</a></b> 
+                    <br>on <small>{{ q.createdDate}}</small>
                 </div>
+                <button class="button"><a href="src\app\FrontOffice\forum\forum\addres.html">Add answer</a></button>
             </div>
         </div> 
-        
+
+       <button class="button" ><a href="src\app\FrontOffice\forum\forum\addquest.html">Add question</a></button>
     </div> 
 </body>
-<app-footer></app-footer>
-
 </html>
+
+<app-footer></app-footer>

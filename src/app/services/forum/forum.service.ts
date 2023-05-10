@@ -15,22 +15,43 @@ export class ForumService {
   getQuestions(): Observable<QuestionsModule> {
     return this.http.get<QuestionsModule>(this.apiUrl+'/getall');
   }
-  /* getQuestions(): Observable<any[]> {
-    console.log(this.http.get<any[]>(`${this.apiUrl+'/getall'}`));
-    return this.http.get<any[]>(`${this.apiUrl}`);
-    
-  } */
-  addData(data: any) {
+
+  addquestion(data: any) {
     console.log(this.http.post(this.apiUrl + '/addQuestions', data));
     return this.http.post(this.apiUrl + '/addQuestions', data); 
   }
-  //submitResponse(questionId: number, response: any): Observable<any[]> {
-    //return this.http.post<any[]>(`${this.apiUrl}/questions/${questionId}/responses`, response);
-  //}
-////get all///
+updatequestion(data: Event, id: number): Observable<Object> {
+  return this.http.put(this.apiUrl + '/updatequestion/{id}', data);
+}
+
+ deleteEvent(id: number): Observable<Object> {
+  return this.http.delete(this.apiUrl + '/deletequestion/{id}');
+} 
+
+
+addanswer(data: any) {
+  console.log(this.http.post(this.apiUrl + '/addanswers', data));
+  return this.http.post(this.apiUrl + '/addanswers', data); 
+}
+
+search(searchQuery: any): Observable<QuestionsModule> {
+  let params: any = {};
+
+  // Check if search query contains values
+  if (searchQuery.description) {
+    params.description = searchQuery.description;
+  }
+  return this.http.get<QuestionsModule>(this.apiUrl + '/search/', { params });
+}
+
+
+
+
+
 
 
 }
+
 
 
 
