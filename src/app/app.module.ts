@@ -54,6 +54,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailsComponent } from './FrontOffice/Animals/details/details.component';
+import { ForumComponent } from './FrontOffice/forum/forum/forum.component';
 
 
 
@@ -100,6 +101,7 @@ import { DetailsComponent } from './FrontOffice/Animals/details/details.componen
       UpdateAnimalBackComponent,
       ListEventsComponent,
       DetailEventComponent,
+      ForumComponent,
 
 
     ],

@@ -36,6 +36,7 @@ import { ListRdvComponent } from './BackOffice/rdvBack/list-rdv/list-rdv.compone
 import { ListEventsComponent } from './FrontOffice/Events/list-events/list-events.component';
 import { DetailEventComponent } from './FrontOffice/Events/detail-event/detail-event.component';
 import { AppComponent } from './app.component';
+import { ForumComponent } from './FrontOffice/forum/forum/forum.component';
 const routes: Routes = [
 
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -83,7 +84,8 @@ const routes: Routes = [
   { path : "animals/add-back" , component :AddAnimalBackComponent},
   { path : "animals/view-animal-back" , component : ViewAnimalBackComponent},
   { path : "update-animal-back/:id" , component : UpdateAnimalBackComponent},
-  { path : "appointments/back" , component : ListRdvComponent }
+  { path : "appointments/back" , component : ListRdvComponent },
+  {path : "forum", component : ForumComponent},
 ];
 
 @NgModule({
